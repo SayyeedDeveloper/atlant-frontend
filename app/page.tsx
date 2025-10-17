@@ -1,28 +1,10 @@
-import Navbar from "@/app/components/Navbar";
+import Carusel from "@/app/components/Carusel";
 
 export default function Home() {
   return (
-      <div>
-          <div className={"  w-full bg-red-500 h-80"}>
-
-          </div>
-          <div className={"  w-full bg-red-500 h-80"}>
-
-          </div>
-          <div className={"  w-full bg-red-500 h-80"}>
-
-          </div>
-          <div className={"  w-full bg-red-500 h-80"}>
-
-          </div>
-          <div className={"  w-full bg-red-500 h-80"}>
-
-          </div>
-          <div className={"  w-full bg-red-500 h-80"}>
-
-          </div>
-          <div className={"  w-full bg-red-500 h-80"}>
-
+      <div className={"mt-18 lg:mt-34"}>
+          <div>
+              <Carusel/>
           </div>
       </div>
   );
