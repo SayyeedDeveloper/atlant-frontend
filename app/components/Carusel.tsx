@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 
 const images = [
-  "/skipphoto.jpg",
   "/skipphoto2.webp",
   "/skipphoto3.webp",
   "/skipphoto4.webp",
