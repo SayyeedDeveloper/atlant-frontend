@@ -1,6 +1,6 @@
-import Carusel from "./components/Carusel"; // Carusel joylashgan joyni ko‘rsatamiz
+import Carusel from "@/app/components/Carusel";
 
-export default function Home() {
+export default function PhotoGallery() {
   return (
     <div className="mt-10">
       <Carusel />
