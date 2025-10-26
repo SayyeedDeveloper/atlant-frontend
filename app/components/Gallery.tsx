@@ -18,19 +18,22 @@ const Gallery = () => {
 
   return (
     <section className="relative bg-gradient-to-b from-gray-100 via-white to-gray-50 py-10 overflow-hidden">
+      {/* Orqa fon bezaklari */}
       <div className="absolute top-0 left-0 w-80 h-80 bg-blue-300/30 rounded-full blur-3xl -translate-x-20 -translate-y-20"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/30 rounded-full blur-3xl translate-x-16 translate-y-16"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* Sarlavha */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-5xl sm:text-6xl font-extrabold text-center mb-12 text-gray-800"
         >
-          <span className="text-black-100 text-4xl ">Фотогалерая</span>
+          <span className="text-black-100 text-4xl">Фотогалерея</span>
         </motion.h2>
 
+        {/* Rasmlar */}
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-5">
           {images.map((src, i) => (
             <motion.div
@@ -50,8 +53,21 @@ const Gallery = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Tugma */}
+        <div className="flex justify-center mt-12">
+          <motion.button
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="bg-blue-500 hover:bg-blue-600 text-white font-medium px-8 py-3 rounded-full shadow-md hover:shadow-lg text-lg"
+          >
+            Показать все
+          </motion.button>
+        </div>
       </div>
 
+      {/* To‘liq rasm ochilishi */}
       {selected && (
         <motion.div
           initial={{ opacity: 0 }}
