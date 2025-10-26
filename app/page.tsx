@@ -2,6 +2,7 @@ import Carousel from "@/app/components/Carousel";
 import Benefits from "@/app/components/Benefits";
 import Callretail from "@/app/components/Callretail";
 import Catalogproduct from "@/app/components/Catalogproduct";
+import Gallery from "@/app/components/Gallery";
 
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
         <Benefits />
         <Callretail/>
         <Catalogproduct/>
+        <Gallery/>
       </div>
     </div>
   );
