@@ -5,6 +5,7 @@ import Catalogproduct from "@/app/components/Catalogproduct";
 import Gallery from "@/app/components/Gallery";
 
 
+
 export default function Home() {
   return (
     <div className="mt-18 lg:mt-34">
@@ -18,3 +19,6 @@ export default function Home() {
     </div>
   );
 }
+
+
+
