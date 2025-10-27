@@ -17,7 +17,7 @@ const Gallery = () => {
   ];
 
   return (
-    <section className="relative bg-gradient-to-b from-gray-100 via-white to-gray-50 py-10 overflow-hidden">
+    <section className="relative bg-gradient-to-b bg-white py-10 overflow-hidden">
       {/* Orqa fon bezaklari */}
       <div className="absolute top-0 left-0 w-80 h-80 bg-blue-300/30 rounded-full blur-3xl -translate-x-20 -translate-y-20"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/30 rounded-full blur-3xl translate-x-16 translate-y-16"></div>
@@ -64,6 +64,7 @@ const Gallery = () => {
           >
             Показать все
           </motion.button>
+        {/*  todo: Hammasini pasini to'g'rila   */}
         </div>
       </div>
 
