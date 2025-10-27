@@ -21,21 +21,21 @@ export default function Carusel() {
 
   return (
     <div className="relative w-full h-[100px] md:h-[500px] lg:h-[500px] overflow-hidden rounded-2xl shadow-lg">
-    
+      {/* Orqa fon (blur effekt bilan) */}
       <img
         src={images[current]}
         alt="Background"
         className="absolute w-full h-full object-cover blur-md scale-110"
       />
 
-      
+      {/* Asosiy rasm (aniq ko‘rinadigan) */}
       <img
         src={images[current]}
         alt="Main Slide"
         className="absolute w-full h-full object-contain object-center transition-opacity duration-700"
       />
 
-      
+      {/* Pastdagi tugmalar */}
       <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
         {images.map((_, index) => (
           <button
