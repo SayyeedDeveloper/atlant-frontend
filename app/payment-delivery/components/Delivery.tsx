@@ -11,8 +11,8 @@ import { MdPayments } from "react-icons/md";
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
 
-const PaymentDelivery = () => {
-    // 🟦 To‘lov turlari
+const Delivery = () => {
+
     const paymentMethods = [
         {
             icon: <FaMoneyBillWave className="text-blue-600 text-3xl" />,
@@ -48,7 +48,7 @@ const PaymentDelivery = () => {
         },
     ];
 
-    // 🟩 Yetkazib berish turlari
+
     const deliveryMethods = [
         {
             icon: <FaTruck className="text-blue-500 text-3xl" />,
@@ -231,4 +231,4 @@ const PaymentDelivery = () => {
     );
 };
 
-export default PaymentDelivery;
+export default Delivery;
