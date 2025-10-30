@@ -6,7 +6,7 @@ import { FaInstagram, FaTelegramPlane, FaPhoneAlt } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { MdLocationOn } from "react-icons/md";
 
-// 🟦 Kategoriyalar (birinchi bo‘lim)
+
 interface Category {
     id: number;
     title: string;
@@ -22,7 +22,7 @@ const categories: Category[] = [
     { id: 6, title: "Прочие товары и оборудование", image: "/images/Category6.webp" },
 ];
 
-// 🟩 Tavsiya etilgan mahsulotlar (ikkinchi bo‘lim)
+
 interface Product {
     id: number;
     title: string;
