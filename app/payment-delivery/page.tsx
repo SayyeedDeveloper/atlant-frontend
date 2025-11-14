@@ -1,7 +1,9 @@
+import Delivery from "./components/Delivery";
+
 export default function Home() {
     return (
-        <div>
-            Payment
+        <div className={"mt-18 lg:mt-34"}>
+            <Delivery/>
         </div>
     );
 }
