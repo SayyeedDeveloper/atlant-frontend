@@ -1,9 +1,9 @@
-import Carusel from "@/app/components/Carusel";
+import Gallery from "@/app/components/Gallery";
 
 export default function PhotoGallery() {
   return (
-    <div className="mt-10">
-      <Carusel />
+    <div className="mt-32">
+      <Gallery />
     </div>
   );
 }
