@@ -8,7 +8,7 @@ const Contactsesion = () => {
             <div className="max-w-6xl mx-auto px-6">
                 <div className="grid md:grid-cols-3 gap-6 justify-center items-start">
 
-                    {/* 📍 Manzil */}
+
                     <div className="flex flex-col items-center text-center border border-blue-400 rounded-xl p-6 hover:shadow-md transition">
                         <div className="text-blue-600 text-3xl mb-3">
                             <FaMapMarkerAlt />
@@ -21,7 +21,7 @@ const Contactsesion = () => {
                         </p>
                     </div>
 
-                    {/* 📞 Telefonlar */}
+
                     <div className="flex flex-col items-center text-center border border-blue-400 rounded-xl p-6 hover:shadow-md transition">
                         <div className="text-blue-600 text-3xl mb-3">
                             <FaPhoneAlt />
@@ -38,7 +38,7 @@ const Contactsesion = () => {
                         </ul>
                     </div>
 
-                    {/* ✉️ Email */}
+
                     <div className="flex flex-col items-center text-center border border-blue-400 rounded-xl p-6 hover:shadow-md transition">
                         <div className="text-blue-600 text-3xl mb-3">
                             <FaEnvelope />
