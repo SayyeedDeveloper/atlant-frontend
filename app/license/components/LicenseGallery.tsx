@@ -41,7 +41,21 @@ const LicenseGallery = () => {
     const [selectedImage, setSelectedImage] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const openModal = (img) => {
+    const openModal = (img: {
+        id: number;
+        src: string;
+        pdf: string;
+        title: string;
+        description: string;
+        issueDate: string
+    } | { id: number; src: string; pdf: string; title: string; description: string; issueDate: string } | {
+        id: number;
+        src: string;
+        pdf: string;
+        title: string;
+        description: string;
+        issueDate: string
+    } | { id: number; src: string; pdf: string; title: string; description: string; issueDate: string }) => {
         setSelectedImage(img);
         setIsModalOpen(true);
         document.body.style.overflow = "hidden";
@@ -53,7 +67,7 @@ const LicenseGallery = () => {
         setTimeout(() => setSelectedImage(null), 300);
     };
 
-    const navigateImage = (direction) => {
+    const navigateImage = (direction: string) => {
         const currentIndex = images.findIndex((img) => img.id === selectedImage.id);
         const newIndex =
             direction === "next"
@@ -62,7 +76,7 @@ const LicenseGallery = () => {
         setSelectedImage(images[newIndex]);
     };
 
-    const handleDownload = (pdfUrl, title) => {
+    const handleDownload = (pdfUrl: string, title: string) => {
         const link = document.createElement("a");
         link.href = pdfUrl;
         link.download = `${title}.pdf`;
