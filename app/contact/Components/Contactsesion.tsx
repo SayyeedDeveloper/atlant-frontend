@@ -55,7 +55,7 @@ const Contactsesion = () => {
                     </div>
                 </div>
 
-                {/* ✍️ Tugma */}
+
                 <div className="flex justify-center mt-10">
                     <button className="border border-blue-500 text-blue-600 px-6 py-2 rounded-full hover:bg-blue-50 transition">
                         Написать
