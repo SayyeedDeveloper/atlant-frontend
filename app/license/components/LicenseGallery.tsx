@@ -80,7 +80,7 @@ const LicenseGallery = () => {
                         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                             Наши официальные разрешения и аккредитации
                         </p>
-                        <div className="mt-6 h-1 w-24 bg-gradient-to-r from-blue-500 to-blue-500 mx-auto rounded-full"></div>
+                        <div className="mt-6 h-1 w-24 bg-gradient-to-r "></div>
                     </div>
 
                     {/* Gallery Grid */}
