@@ -1,7 +1,11 @@
-export default function Licence() {
+import LicenseGallery from "@/app/license/components/LicenseGallery";
+
+
+export default function Home() {
     return (
-        <div>
-            License
+        <div className="mt-18 lg:mt-34">
+            <LicenseGallery />
         </div>
     );
 }
+
