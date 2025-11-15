@@ -8,32 +8,24 @@ const images = [
         src: "/images/license1.jpg",
         pdf: "/pdfs/license1.pdf",
         title: "Лицензия №1",
-        description: "Государственная лицензия",
-        issueDate: "2023-01-15",
     },
     {
         id: 2,
         src: "/images/license2.jpg",
         pdf: "/pdfs/license2.pdf",
         title: "Лицензия №2",
-        description: "Сертификат качества",
-        issueDate: "2023-03-20",
     },
     {
         id: 3,
         src: "/images/license3.jpg",
         pdf: "/pdfs/license3.pdf",
         title: "Лицензия №3",
-        description: "Международный сертификат",
-        issueDate: "2023-06-10",
     },
     {
         id: 4,
         src: "/images/license4.jpg",
         pdf: "/pdfs/license4.pdf",
         title: "Лицензия №4",
-        description: "Аккредитация",
-        issueDate: "2023-09-05",
     },
 ];
 
@@ -41,21 +33,7 @@ const LicenseGallery = () => {
     const [selectedImage, setSelectedImage] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const openModal = (img: {
-        id: number;
-        src: string;
-        pdf: string;
-        title: string;
-        description: string;
-        issueDate: string
-    } | { id: number; src: string; pdf: string; title: string; description: string; issueDate: string } | {
-        id: number;
-        src: string;
-        pdf: string;
-        title: string;
-        description: string;
-        issueDate: string
-    } | { id: number; src: string; pdf: string; title: string; description: string; issueDate: string }) => {
+    const openModal = (img) => {
         setSelectedImage(img);
         setIsModalOpen(true);
         document.body.style.overflow = "hidden";
@@ -67,7 +45,7 @@ const LicenseGallery = () => {
         setTimeout(() => setSelectedImage(null), 300);
     };
 
-    const navigateImage = (direction: string) => {
+    const navigateImage = (direction) => {
         const currentIndex = images.findIndex((img) => img.id === selectedImage.id);
         const newIndex =
             direction === "next"
@@ -76,7 +54,7 @@ const LicenseGallery = () => {
         setSelectedImage(images[newIndex]);
     };
 
-    const handleDownload = (pdfUrl: string, title: string) => {
+    const handleDownload = (pdfUrl, title) => {
         const link = document.createElement("a");
         link.href = pdfUrl;
         link.download = `${title}.pdf`;
@@ -157,25 +135,6 @@ const LicenseGallery = () => {
                                     <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-500 transition-colors">
                                         {img.title}
                                     </h3>
-                                    <p className="text-sm text-gray-600 mb-3">
-                                        {img.description}
-                                    </p>
-                                    <div className="flex items-center text-xs text-gray-500">
-                                        <svg
-                                            className="w-4 h-4 mr-1"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                                            />
-                                        </svg>
-                                        {new Date(img.issueDate).toLocaleDateString("ru-RU")}
-                                    </div>
                                 </div>
 
                                 {/* Decorative corner */}
@@ -202,9 +161,6 @@ const LicenseGallery = () => {
                         <div className="flex items-center justify-between p-6 bg-gradient-to-r from-blue-600 to-blue-600 text-white">
                             <div>
                                 <h2 className="text-2xl font-bold">{selectedImage.title}</h2>
-                                <p className="text-indigo-100 text-sm mt-1">
-                                    {selectedImage.description}
-                                </p>
                             </div>
                             <button
                                 onClick={closeModal}
@@ -238,15 +194,7 @@ const LicenseGallery = () => {
                         </div>
 
                         {/* Modal Footer */}
-                        <div className="flex items-center justify-between p-6 bg-gray-50">
-                            <div className="text-sm text-gray-600">
-                                <span className="font-semibold">Дата выдачи:</span>{" "}
-                                {new Date(selectedImage.issueDate).toLocaleDateString("ru-RU", {
-                                    year: "numeric",
-                                    month: "long",
-                                    day: "numeric",
-                                })}
-                            </div>
+                        <div className="flex items-center justify-end p-6 bg-gray-50">
                             <div className="flex gap-3">
                                 <a
                                     href={selectedImage.pdf}
