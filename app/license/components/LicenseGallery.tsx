@@ -100,7 +100,7 @@ const LicenseGallery = () => {
                                         loading="lazy"
                                     />
 
-                                    {/* Overlay */}
+                                    tt
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                         <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
                                             <button
