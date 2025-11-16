@@ -2,7 +2,14 @@
 import React, { useState } from "react";
 import { X, Download, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
 
-const images = [
+type ImageType = {
+    id: number;
+    src: string;
+    pdf: string;
+    title: string;
+};
+
+const images: ImageType[] = [
     {
         id: 1,
         src: "/images/license1.jpg",
@@ -30,10 +37,10 @@ const images = [
 ];
 
 const LicenseGallery = () => {
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const openModal = (img) => {
+    const openModal = (img: ImageType) => {
         setSelectedImage(img);
         setIsModalOpen(true);
         document.body.style.overflow = "hidden";
@@ -45,7 +52,9 @@ const LicenseGallery = () => {
         setTimeout(() => setSelectedImage(null), 300);
     };
 
-    const navigateImage = (direction) => {
+    const navigateImage = (direction: string) => {
+        if (!selectedImage) return;
+
         const currentIndex = images.findIndex((img) => img.id === selectedImage.id);
         const newIndex =
             direction === "next"
@@ -54,7 +63,7 @@ const LicenseGallery = () => {
         setSelectedImage(images[newIndex]);
     };
 
-    const handleDownload = (pdfUrl, title) => {
+    const handleDownload = (pdfUrl: string, title: string) => {
         const link = document.createElement("a");
         link.href = pdfUrl;
         link.download = `${title}.pdf`;
@@ -67,7 +76,6 @@ const LicenseGallery = () => {
         <>
             <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-16 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-7xl mx-auto">
-                    {/* Header Section */}
                     <div className="text-center mb-16 animate-fade-in">
                         <div className="inline-block mb-4">
                             <span className="px-4 py-2 bg-indigo-100 text-blue-500 rounded-full text-sm font-semibold tracking-wide uppercase">
@@ -80,10 +88,9 @@ const LicenseGallery = () => {
                         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                             Наши официальные разрешения и аккредитации
                         </p>
-                        <div className="mt-6 h-1 w-24 bg-gradient-to-r "></div>
+                        <div className="mt-6 h-1 w-24 bg-gradient-to-r"></div>
                     </div>
 
-                    {/* Gallery Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                         {images.map((img, index) => (
                             <div
@@ -91,7 +98,6 @@ const LicenseGallery = () => {
                                 className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:-translate-y-2 animate-slide-up"
                                 style={{ animationDelay: `${index * 100}ms` }}
                             >
-                                {/* Image Container */}
                                 <div className="relative h-72 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                                     <img
                                         src={img.src}
@@ -100,7 +106,6 @@ const LicenseGallery = () => {
                                         loading="lazy"
                                     />
 
-                                    tt
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                         <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
                                             <button
@@ -120,7 +125,6 @@ const LicenseGallery = () => {
                                         </div>
                                     </div>
 
-                                    {/* Badge */}
                                     <div className="absolute top-4 right-4">
                                         <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
                                             <span className="text-xs font-bold text-blue-600">
@@ -130,14 +134,12 @@ const LicenseGallery = () => {
                                     </div>
                                 </div>
 
-                                {/* Card Content */}
                                 <div className="p-6">
                                     <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-500 transition-colors">
                                         {img.title}
                                     </h3>
                                 </div>
 
-                                {/* Decorative corner */}
                                 <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-indigo-500/10 to-transparent rounded-tl-full"></div>
                             </div>
                         ))}
@@ -145,7 +147,6 @@ const LicenseGallery = () => {
                 </div>
             </div>
 
-            {/* Modal */}
             {isModalOpen && selectedImage && (
                 <div
                     className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-sm transition-opacity duration-300 ${
@@ -157,7 +158,6 @@ const LicenseGallery = () => {
                         className="relative max-w-5xl w-full bg-white rounded-2xl shadow-2xl overflow-hidden transform transition-transform duration-300 scale-100"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        {/* Modal Header */}
                         <div className="flex items-center justify-between p-6 bg-gradient-to-r from-blue-600 to-blue-600 text-white">
                             <div>
                                 <h2 className="text-2xl font-bold">{selectedImage.title}</h2>
@@ -170,7 +170,6 @@ const LicenseGallery = () => {
                             </button>
                         </div>
 
-                        {/* Modal Image */}
                         <div className="relative bg-gray-100">
                             <img
                                 src={selectedImage.src}
@@ -178,7 +177,6 @@ const LicenseGallery = () => {
                                 className="w-full h-auto max-h-[70vh] object-contain"
                             />
 
-                            {/* Navigation Buttons */}
                             <button
                                 onClick={() => navigateImage("prev")}
                                 className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white/90 hover:bg-white rounded-full shadow-lg transition-all hover:scale-110"
@@ -193,7 +191,6 @@ const LicenseGallery = () => {
                             </button>
                         </div>
 
-                        {/* Modal Footer */}
                         <div className="flex items-center justify-end p-6 bg-gray-50">
                             <div className="flex gap-3">
                                 <a
