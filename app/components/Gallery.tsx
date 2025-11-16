@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Download, ZoomIn } from "lucide-react";
 
 const Gallery = () => {
-    const [selected, setSelected] = useState(null);
+    const [selected, setSelected] = useState<string | null>(null);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isZoomed, setIsZoomed] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
@@ -28,7 +28,7 @@ const Gallery = () => {
 
     // Keyboard navigation
     useEffect(() => {
-        const handleKeyDown = (e) => {
+        const handleKeyDown = (e: KeyboardEvent) => {
             if (!selected) return;
 
             if (e.key === "Escape") {
@@ -45,7 +45,7 @@ const Gallery = () => {
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, [selected, currentIndex]);
 
-    const openModal = (src, index) => {
+    const openModal = (src: string, index: number) => {
         setSelected(src);
         setCurrentIndex(startIndex + index);
         document.body.style.overflow = "hidden";
@@ -57,7 +57,7 @@ const Gallery = () => {
         document.body.style.overflow = "unset";
     };
 
-    const navigateImage = (direction) => {
+    const navigateImage = (direction: string) => {
         let newIndex;
         if (direction === "next") {
             newIndex = (currentIndex + 1) % images.length;
@@ -68,7 +68,7 @@ const Gallery = () => {
         setSelected(images[newIndex].src);
     };
 
-    const handleDownload = (src, title) => {
+    const handleDownload = (src: string, title: string) => {
         const link = document.createElement("a");
         link.href = src;
         link.download = `${title}.webp`;
@@ -77,10 +77,11 @@ const Gallery = () => {
         document.body.removeChild(link);
     };
 
-    const goToPage = (page) => {
+    const goToPage = (page: number) => {
         setCurrentPage(page);
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
+
 
     const goToPrevPage = () => {
         if (currentPage > 1) {

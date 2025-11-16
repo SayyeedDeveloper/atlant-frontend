@@ -23,7 +23,7 @@ const ContactSection = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
-        const handleMouseMove = (e) => {
+        const handleMouseMove = (e: { clientX: any; clientY: never; }) => {
             setMousePosition({ x: e.clientX, y: e.clientY });
         };
         window.addEventListener("mousemove", handleMouseMove);
@@ -43,7 +43,7 @@ const ContactSection = () => {
         }, 2000);
     };
 
-    const handleChange = (e) => {
+    const handleChange = (e: { target: { name: never; value: never; }; }) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
