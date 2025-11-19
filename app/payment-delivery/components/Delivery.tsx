@@ -11,24 +11,39 @@ import { MdPayments } from "react-icons/md";
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
 
-const Delivery = () => {
+type Product = {
+    id: number;
+    title: string;
+    price: string;
+    available: boolean;
+    image: string;
+};
 
+const recommendedProducts: Product[] = [
+    { id: 1, title: "Генератор озона DNA-10G-A", price: "5 575 200 сум", available: true, image: "/images/Recomend1.webp" },
+    { id: 2, title: "Фильтр Atlant Fortuna, 8 ступеней", price: "1 951 320 сум", available: true, image: "/images/Recomend2.webp" },
+    { id: 3, title: "Насосная станция SHIMGE JET 1100G2", price: "1 602 870 сум", available: true, image: "/images/Recomend3.webp" },
+    { id: 4, title: "Система обратного осмоса HLDRO-500LPH", price: "28 572 900 сум", available: true, image: "/images/Recomend4.webp" },
+    { id: 5, title: "Насосная станция SHIMGE JET 750G2", price: "1 393 800 сум", available: true, image: "/images/Recomend5.webp" },
+];
+
+const Delivery = () => {
     const paymentMethods = [
         {
             icon: <FaMoneyBillWave className="text-blue-600 text-3xl" />,
             title: "Наличными",
-            text: `Оплата наличными осуществляется в головном офисе в г.Каган (Бухарская область), либо в одном из филиалов в Ташкенте, Карши или Ургенче. 
-[1] Бухара, г. Каган, ул. Махмуд Торобий, 183. 
-[2] Ташкент, Чиланзар, ул.Гавхар, 122А1. 
-[3] Карши, ул. Каманди, 63А. 
+            text: `Оплата наличными осуществляется в головном офисе в г.Каган (Бухарская область), либо в одном из филиалов в Ташкенте, Карши или Ургенче.
+[1] Бухара, г. Каган, ул. Махмуд Торобий, 183.
+[2] Ташкент, Чиланзар, ул.Гавхар, 122А1.
+[3] Карши, ул. Каманди, 63А.
 [4] Ургенч, ул. Фарход, 78.`,
         },
         {
             icon: <MdPayments className="text-blue-600 text-3xl" />,
             title: "Перечислением",
-            text: `Получатель: ООО "Atlant Fortuna"; 
-Р/с: 20208000800705643001 в АКБ "Узпромстройбанк"; 
-МФО:00440; ИНН:304440114. 
+            text: `Получатель: ООО "Atlant Fortuna";
+Р/с: 20208000800705643001 в АКБ "Узпромстройбанк";
+МФО:00440; ИНН:304440114.
 Условия оплаты — предоплата 100%.`,
         },
         {
@@ -39,89 +54,47 @@ const Delivery = () => {
         {
             icon: <FaGlobe className="text-blue-600 text-3xl" />,
             title: "Онлайн оплата (Click)",
-            text: `Для оплаты: 
-(1) Введите "ATLANT FORTUNA AF" в поиске Click, 
-(2) выберите компанию, 
-(3) укажите номер заказа, телефон и сумму, 
-(4) оплатите, 
+            text: `Для оплаты:
+(1) Введите "ATLANT FORTUNA AF" в поиске Click,
+(2) выберите компанию,
+(3) укажите номер заказа, телефон и сумму,
+(4) оплатите,
 (5) ожидайте звонка для подтверждения.`,
         },
     ];
-
 
     const deliveryMethods = [
         {
             icon: <FaTruck className="text-blue-500 text-3xl" />,
             title: "Курьерская доставка",
-            text: `Доставка осуществляется через BTS. Стоимость — 100 000 сум. 
-Все регионы Узбекистана. 
+            text: `Доставка осуществляется через BTS. Стоимость — 100 000 сум.
+Все регионы Узбекистана.
 Подробнее: https://bts.uz/ru/calculate`,
         },
         {
             icon: <FaStore className="text-blue-500 text-3xl" />,
             title: "Самовывоз",
-            text: `Заберите товар в наших офисах: 
-[1] Бухара, г. Каган, ул. Махмуд Торобий, 183. 
-[2] Ташкент, ул.Гавхар, 122А1. 
-[3] Карши, ул. Каманди, 63А. 
+            text: `Заберите товар в наших офисах:
+[1] Бухара, г. Каган, ул. Махмуд Торобий, 183.
+[2] Ташкент, ул.Гавхар, 122А1.
+[3] Карши, ул. Каманди, 63А.
 [4] Ургенч, ул. Фарход, 78.`,
         },
         {
             icon: <FaTruck className="text-blue-500 text-3xl" />,
             title: "Транспортная компания",
-            text: `Доставка крупногабаритного оборудования осуществляется грузовым автотранспортом. 
-Стоимость — от 1 000 000 сум. 
+            text: `Доставка крупногабаритного оборудования осуществляется грузовым автотранспортом.
+Стоимость — от 1 000 000 сум.
 Бесплатная погрузка, разгрузка — за счёт покупателя.`,
-        },
-    ];
-
-    // 🧩 Tavsiya etilgan mahsulotlar
-    const products = [
-        {
-            id: 1,
-            title: "Фильтр обратного осмоса",
-            price: "1 200 000 сум",
-            image: "/images/Category1.webp",
-            available: true,
-        },
-        {
-            id: 2,
-            title: "Система очистки воды",
-            price: "2 500 000 сум",
-            image: "/images/Category2.webp",
-            available: true,
-        },
-        {
-            id: 3,
-            title: "Фильтр под мойку",
-            price: "980 000 сум",
-            image: "/images/Category3.webp",
-            available: false,
-        },
-        {
-            id: 4,
-            title: "Фильтр для офиса",
-            price: "3 200 000 сум",
-            image: "/images/Category4.webp",
-            available: true,
-        },
-        {
-            id: 5,
-            title: "Фильтр для дома",
-            price: "1 750 000 сум",
-            image: "/images/Category5.webp",
-            available: true,
         },
     ];
 
     return (
         <div className="flex flex-col min-h-screen bg-gray-50">
-            {/* 🟦 Hero Section */}
             <div className="bg-gradient-to-r from-blue-600 to-blue-400 text-white py-10 text-center shadow-md">
                 <h1 className="text-4xl font-bold">Оплата и доставка</h1>
             </div>
 
-            {/* 🟦 Payment Section */}
             <div className="flex-1 container mx-auto px-4 py-10">
                 <h2 className="text-3xl font-semibold text-blue-600 mb-6">Способы оплаты</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -142,7 +115,6 @@ const Delivery = () => {
                     ))}
                 </div>
 
-                {/* 🟩 Delivery Section */}
                 <h2 className="text-3xl font-semibold text-blue-500 mt-12 mb-6">Способы доставки</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {deliveryMethods.map((item, index) => (
@@ -163,7 +135,6 @@ const Delivery = () => {
                 </div>
             </div>
 
-            {/* 🧩 Recommended Products */}
             <section className="bg-gray-50 py-16">
                 <div className="max-w-7xl mx-auto px-4">
                     <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-10">
@@ -176,7 +147,7 @@ const Delivery = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7 }}
                     >
-                        {products.map((product) => (
+                        {recommendedProducts.map((product) => (
                             <motion.div
                                 key={product.id}
                                 whileHover={{ scale: 1.03 }}
@@ -222,8 +193,6 @@ const Delivery = () => {
                     </motion.div>
                 </div>
             </section>
-
-
         </div>
     );
 };

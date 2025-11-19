@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, FormEvent, ChangeEvent } from "react";
 import {
     MapPin,
     Phone,
@@ -23,14 +23,14 @@ const ContactSection = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
-        const handleMouseMove = (e: { clientX: any; clientY: never; }) => {
+        const handleMouseMove = (e: MouseEvent) => {
             setMousePosition({ x: e.clientX, y: e.clientY });
         };
         window.addEventListener("mousemove", handleMouseMove);
         return () => window.removeEventListener("mousemove", handleMouseMove);
     }, []);
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsSubmitting(true);
 
@@ -43,7 +43,7 @@ const ContactSection = () => {
         }, 2000);
     };
 
-    const handleChange = (e: { target: { name: never; value: never; }; }) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
@@ -173,7 +173,7 @@ const ContactSection = () => {
                                             value={formData.message}
                                             onChange={handleChange}
                                             required
-                                            rows="6"
+                                            rows={6}
                                             placeholder="Расскажите нам о вашем проекте..."
                                             className="w-full px-6 py-4 bg-blue-50/50 border-2 border-blue-200 rounded-2xl text-gray-900 placeholder-gray-400 focus:bg-white focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-100 transition-all resize-none"
                                         ></textarea>

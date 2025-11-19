@@ -2,12 +2,15 @@
 import { useState, useEffect, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 
+
+
 const Carousel = () => {
     const [emblaRef, emblaApi] = useEmblaCarousel({
         loop: true,
         align: 'center'
     });
     const [currentSlide, setCurrentSlide] = useState(0);
+
 
     const images = [
         "/skipphoto1.jpg",

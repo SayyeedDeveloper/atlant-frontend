@@ -22,18 +22,18 @@ const products: Product[] = [
 const Catalogproduct: React.FC = () => {
     return (
         <section className="relative min-h-screen bg-gradient-to-br bg-white via-white bg-white-100 py-10 overflow-hidden">
-            {/* Background glow */}
+
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-white blur-3xl opacity-20 rounded-full" />
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
-                {/* Title */}
+
                 <div className="text-center mb-16">
                     <h2 className="text-3xl font-extrabold text-gray-800 tracking-tight mb-4">
                         Каталог продуктов
                     </h2>
                 </div>
 
-                {/* Product grid */}
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
                     {products.map((item, index) => (
                         <motion.div
@@ -47,7 +47,7 @@ const Catalogproduct: React.FC = () => {
                             {/* Decorative gradient overlay */}
                             <div className="absolute inset-0 bg-gradient-to-br bg-white to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-500 rounded-3xl"></div>
 
-                            {/* Image container */}
+
                             <div className="relative w-full h-[200px] flex items-center justify-center overflow-hidden rounded-2xl bg-gray-50">
                                 <img
                                     src={item.image}
@@ -56,12 +56,12 @@ const Catalogproduct: React.FC = () => {
                                 />
                             </div>
 
-                            {/* Title */}
+
                             <h3 className="mt-5 text-lg font-semibold text-gray-800 text-center group-hover:text-blue-700 transition-colors">
                                 {item.title}
                             </h3>
 
-                            {/* Line */}
+
                             <div className="mt-3 h-[3px] w-14 bg-blue-600 rounded-full group-hover:w-20 transition-all duration-500"></div>
                         </motion.div>
                     ))}
