@@ -101,9 +101,7 @@ const Catalogforproduct = () => {
                                 transition={{ type: "spring", stiffness: 200 }}
                                 className="bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden relative group"
                             >
-                                <button className="absolute top-3 right-3 bg-white p-2 rounded-full shadow-md hover:bg-blue-50 transition">
-                                    <Heart className="w-5 h-5 text-blue-600" />
-                                </button>
+
 
                                 <div className="h-48 flex justify-center items-center bg-gray-50 overflow-hidden">
                                     <img
