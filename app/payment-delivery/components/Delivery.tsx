@@ -88,7 +88,7 @@ const Delivery = () => {
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-20">
             <div className="text-center mb-12">
                 <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">{title}</h2>
-                <div className="h-1.5 w-32 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full"></div>
+
             </div>
 
             <div className={`grid grid-cols-1 ${isPayment ? 'md:grid-cols-2' : 'md:grid-cols-3'} gap-8`}>
@@ -172,12 +172,11 @@ const Delivery = () => {
     );
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-            {/* Hero Section */}
+        <div className="min-h-screen bg-white">
             {/* Hero Section */}
             <div className="relative bg-white overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500 rounded-full blur-3xl"></div>
+                <div className="absolute inset-0 opacity-5">
+                    <div className="absolute top-20 left-10 w-32 h-32 bg-blue-600 rounded-full blur-3xl"></div>
                     <div className="absolute bottom-20 right-20 w-40 h-40 bg-blue-400 rounded-full blur-3xl"></div>
                 </div>
 
@@ -189,9 +188,9 @@ const Delivery = () => {
                             transition={{ duration: 0.8 }}
                         >
                             <h1 className="text-5xl md:text-6xl font-black mb-6">
-                                <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">Delivery</span>
+                                <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">Оплата</span>
                                 <br />
-                                <span className="text-gray-900">Service</span>
+                                <span className="text-blue-500">доставка</span>
                             </h1>
                             <p className="text-lg text-gray-700 mb-8 leading-relaxed">
                                 Быстрая и надежная доставка товаров по всему Узбекистану. Выберите удобный способ получения заказа.
@@ -206,11 +205,11 @@ const Delivery = () => {
                             </motion.button>
 
                             <div className="flex flex-wrap gap-4 mt-8">
-                                <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full border border-blue-100">
+                                <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full border border-blue-50">
                                     <Package className="w-5 h-5 text-blue-500" />
                                     <span className="text-sm font-semibold text-gray-700">Безопасная упаковка</span>
                                 </div>
-                                <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full border border-blue-100">
+                                <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full border border-blue-50">
                                     <Clock className="w-5 h-5 text-blue-500" />
                                     <span className="text-sm font-semibold text-gray-700">Быстрая доставка</span>
                                 </div>
@@ -223,22 +222,19 @@ const Delivery = () => {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="relative"
                         >
-                            <div className="relative w-full h-[400px] bg-white ">
+                            <div className="relative w-full h-[400px] bg-white">
                                 <Image
                                     src="/atlant-fortuna2.jpg"
                                     alt="Delivery Service"
                                     fill
-                                    className="object-contain "
-
+                                    className="object-contain"
                                     priority
                                 />
                             </div>
                         </motion.div>
-
                     </div>
                 </div>
             </div>
-
 
             <div id="payment-section" className="max-w-7xl mx-auto px-4 py-16">
                 <CardSection title="Способы оплаты" items={payments} isPayment={true} />
@@ -246,6 +242,7 @@ const Delivery = () => {
             </div>
         </div>
     );
+
 };
 
 export default Delivery;
