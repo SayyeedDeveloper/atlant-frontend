@@ -77,12 +77,8 @@ const LicenseGallery = () => {
             <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-16 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16 animate-fade-in">
-                        <div className="inline-block mb-4">
-                            <span className="px-4 py-2 bg-indigo-100 text-blue-500 rounded-full text-sm font-semibold tracking-wide uppercase">
-                                Сертификаты
-                            </span>
-                        </div>
-                        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-600">
+
+                        <h1 className="text-5xl md:text-6xl font-bold text-blue-600 mb-4  from-blue-600 to-blue-600">
                             Лицензионные Сертификаты
                         </h1>
                         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -125,13 +121,7 @@ const LicenseGallery = () => {
                                         </div>
                                     </div>
 
-                                    <div className="absolute top-4 right-4">
-                                        <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
-                                            <span className="text-xs font-bold text-blue-600">
-                                                №{img.id}
-                                            </span>
-                                        </div>
-                                    </div>
+
                                 </div>
 
                                 <div className="p-6">
