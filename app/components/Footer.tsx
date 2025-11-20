@@ -1,7 +1,6 @@
 import {HiOutlineMail} from "react-icons/hi";
 import {MdLocationOn} from "react-icons/md";
 import {FaInstagram, FaPhoneAlt, FaTelegramPlane} from "react-icons/fa";
-import Contactsesion from "@/app/contact/Components/Contactsesion";
 
 const Footer = () => {
     return (
@@ -13,7 +12,7 @@ const Footer = () => {
                         Закажите звонок и мы свяжемся с вами в ближайшее время
                     </p>
                     <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full transition-all">
-                        <a href="">Заказать звонок</a>
+                        <a href="/contact">Заказать звонок</a>
                     </button>
                 </div>
 
