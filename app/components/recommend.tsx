@@ -46,6 +46,8 @@ export default function RecommendSection({ products }: { products?: Product[] })
                                     <button className="flex-1 border border-blue-600 text-blue-600 py-2 rounded-full text-sm hover:bg-blue-600 hover:text-white transition">
                                         Купить
                                     </button>
+
+                                    <a href="/contact">Заказать звонок</a>
                                     <button className="flex-1 border border-gray-300 text-gray-700 py-2 rounded-full text-sm hover:bg-gray-200 transition">
                                         В корзину
                                     </button>

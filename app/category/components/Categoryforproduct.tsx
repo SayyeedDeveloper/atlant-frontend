@@ -132,8 +132,9 @@ const Catalogforproduct = () => {
 
                                     <div className="flex justify-between mt-4 gap-2">
                                         <button className="flex-1 border border-blue-600 text-blue-600 py-2 rounded-full text-sm font-medium hover:bg-blue-600 hover:text-white transition">
-                                            Купить
+                                            <a href="/contact">Купить</a>
                                         </button>
+
                                         <button className="flex-1 border border-blue-600 text-blue-600 py-2 rounded-full text-sm font-medium hover:bg-blue-600 hover:text-white transition">
                                             В корзину
                                         </button>

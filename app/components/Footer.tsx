@@ -45,9 +45,9 @@ const Footer = () => {
                             <MdLocationOn className="mt-1" />
                             <span>Бухарская область, Город Каган, ул. Махмуд Торобий, 183</span>
                         </li>
-                        <li className="flex items-center gap-2">
+                        <a href="/contact" className="flex items-center gap-2">
                             <FaPhoneAlt /> +998 99 707 00 59
-                        </li>
+                        </a>
                         <li className="flex items-center gap-2">
                             <HiOutlineMail /> atlant-fortuna@mail.ru
                         </li>
