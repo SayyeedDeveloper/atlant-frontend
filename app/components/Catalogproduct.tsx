@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 interface Product {
@@ -20,8 +20,10 @@ const products: Product[] = [
 ];
 
 const Catalogproduct: React.FC = () => {
+    const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
     return (
-        <section className="relative min-h-screen bg-gradient-to-br bg-white via-white bg-white-100 py-10 overflow-hidden">
+        <section className="relative min-h-screen bg-white py-10 overflow-hidden">
 
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-white blur-3xl opacity-20 rounded-full" />
 
@@ -33,6 +35,30 @@ const Catalogproduct: React.FC = () => {
                     </h2>
                 </div>
 
+                {/* Product Details Modal */}
+                {selectedProduct && (
+                    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-40">
+                        <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-sm w-full relative">
+                            <button
+                                className="absolute top-5 right-6 text-gray-400 hover:text-gray-700 text-2xl"
+                                onClick={() => setSelectedProduct(null)}
+                            >
+                                &times;
+                            </button>
+                            <div className="w-full flex flex-col items-center">
+                                <img
+                                    src={selectedProduct.image}
+                                    alt={selectedProduct.title}
+                                    className="object-contain h-56 w-full mb-6 rounded-2xl"
+                                />
+                                <h3 className="text-xl font-bold text-gray-800 mb-2 text-center">
+                                    {selectedProduct.title}
+                                </h3>
+                                {/* Add more details here as needed */}
+                            </div>
+                        </div>
+                    </div>
+                )}
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
                     {products.map((item, index) => (
@@ -42,11 +68,10 @@ const Catalogproduct: React.FC = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
                             whileHover={{ scale: 1.05 }}
-                            className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden flex flex-col items-center p-6"
+                            className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden flex flex-col items-center p-6 cursor-pointer"
+                            onClick={() => setSelectedProduct(item)}
                         >
-                            {/* Decorative gradient overlay */}
                             <div className="absolute inset-0 bg-gradient-to-br bg-white to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-500 rounded-3xl"></div>
-
 
                             <div className="relative w-full h-[200px] flex items-center justify-center overflow-hidden rounded-2xl bg-gray-50">
                                 <img
@@ -56,11 +81,9 @@ const Catalogproduct: React.FC = () => {
                                 />
                             </div>
 
-
                             <h3 className="mt-5 text-lg font-semibold text-gray-800 text-center group-hover:text-blue-700 transition-colors">
                                 {item.title}
                             </h3>
-
 
                             <div className="mt-3 h-[3px] w-14 bg-blue-600 rounded-full group-hover:w-20 transition-all duration-500"></div>
                         </motion.div>

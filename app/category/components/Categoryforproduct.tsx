@@ -1,10 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { Heart } from "lucide-react";
-import { FaInstagram, FaTelegramPlane, FaPhoneAlt } from "react-icons/fa";
-import { HiOutlineMail } from "react-icons/hi";
-import { MdLocationOn } from "react-icons/md";
+import {useRouter} from "next/navigation";
 
 
 interface Category {
@@ -40,6 +37,7 @@ const products: Product[] = [
 ];
 
 const Catalogforproduct = () => {
+    const router = useRouter();
     return (
         <div className="bg-gradient-to-b from-blue-50 to-white min-h-screen flex flex-col">
 
@@ -96,6 +94,7 @@ const Catalogforproduct = () => {
                     >
                         {products.map((product) => (
                             <motion.div
+                                onClick={() => router.push("/product")}
                                 key={product.id}
                                 whileHover={{ scale: 1.03 }}
                                 transition={{ type: "spring", stiffness: 200 }}
