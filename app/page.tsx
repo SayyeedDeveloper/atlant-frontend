@@ -1,8 +1,8 @@
-import Carousel from "@/app/components/Carousel";
-import Benefits from "@/app/components/Benefits";
-import Callretail from "@/app/components/Callretail";
-import Catalogproduct from "@/app/components/Catalogproduct";
-import Gallery from "@/app/components/Gallery";
+import Carousel from "@/components/features/Carousel";
+import Benefits from "@/components/features/Benefits";
+import Callretail from "@/components/features/Callretail";
+import Catalogproduct from "@/components/features/Catalogproduct";
+import Gallery from "@/components/features/Gallery";
 
 
 

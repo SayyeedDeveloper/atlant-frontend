@@ -1,4 +1,7 @@
-import Contactsesion from "./Components/Contactsesion";
+import Contactsesion from "./components/Contactsesion";
+import { contactMetadata } from "@/data/metadata";
+
+export const metadata = contactMetadata;
 
 export default function Home() {
     return (

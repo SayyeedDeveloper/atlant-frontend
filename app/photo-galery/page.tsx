@@ -1,4 +1,7 @@
-import Gallery from "@/app/components/Gallery";
+import Gallery from "@/components/features/Gallery";
+import { photoGalleryMetadata } from "@/data/metadata";
+
+export const metadata = photoGalleryMetadata;
 
 export default function PhotoGallery() {
   return (

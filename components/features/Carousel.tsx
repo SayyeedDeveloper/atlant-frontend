@@ -1,8 +1,7 @@
 'use client'
 import { useState, useEffect, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-
-
+import { carouselImages } from '@/data/products';
 
 const Carousel = () => {
     const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -10,15 +9,6 @@ const Carousel = () => {
         align: 'center'
     });
     const [currentSlide, setCurrentSlide] = useState(0);
-
-
-    const images = [
-        "/skipphoto1.jpg",
-        "/skipphoto2.webp",
-        "/skipphoto3.webp",
-        "/skipphoto4.webp",
-        "/skipphoto5.webp"
-    ];
 
     const scrollPrev = useCallback(() => {
         if (emblaApi) emblaApi.scrollPrev();
@@ -49,7 +39,7 @@ const Carousel = () => {
             <div id="default-carousel" className="relative w-full select-none  overflow-hidden bg-gray-100">
                 <div className="overflow-hidden h-full" ref={emblaRef}>
                     <div className="flex h-full">
-                        {images.map((src, index) => (
+                        {carouselImages.map((src, index) => (
                             <div
                                 key={index}
                                 className="flex-[0_0_100%] min-w-0 relative h-full"
@@ -65,7 +55,7 @@ const Carousel = () => {
                 </div>
 
                 <div className="absolute z-30 flex -translate-x-1/2 bottom-3 sm:bottom-4 left-1/2 space-x-2">
-                    {images.map((_, index) => (
+                    {carouselImages.map((_, index) => (
                         <button
                             key={index}
                             type="button"

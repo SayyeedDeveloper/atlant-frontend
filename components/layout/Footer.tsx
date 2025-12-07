@@ -12,7 +12,7 @@ const Footer = () => {
                         Закажите звонок и мы свяжемся с вами в ближайшее время
                     </p>
                     <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full transition-all">
-                        <a href="/contact">Заказать звонок</a>
+                        Заказать звонок
                     </button>
                 </div>
 
@@ -45,9 +45,9 @@ const Footer = () => {
                             <MdLocationOn className="mt-1" />
                             <span>Бухарская область, Город Каган, ул. Махмуд Торобий, 183</span>
                         </li>
-                        <a href="/contact" className="flex items-center gap-2">
+                        <li className="flex items-center gap-2">
                             <FaPhoneAlt /> +998 99 707 00 59
-                        </a>
+                        </li>
                         <li className="flex items-center gap-2">
                             <HiOutlineMail /> atlant-fortuna@mail.ru
                         </li>

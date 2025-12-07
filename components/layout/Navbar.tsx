@@ -1,31 +1,13 @@
 'use client'
 
-
 import Image from "next/image";
 import {FaRegHeart} from "react-icons/fa";
 import {FiMenu, FiSearch, FiShoppingCart} from "react-icons/fi";
-import { IoHome } from "react-icons/io5";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {Sheet, SheetContent, SheetTitle, SheetTrigger, SheetHeader} from "@/components/ui/sheet";
-import {ReactNode, useState} from "react";
-
-type Link  = {
-    name: string | ReactNode;
-    link: string
-}
-
-const links:Link[] = [
-    { name: <IoHome className="w-6 h-6"/>, link: ""},
-    { name: "О наc", link: "about"},
-    { name: "Каталог", link: "category"},
-    { name: "Оплата и доставка", link: "payment-delivery"},
-    { name: "Услуги", link: "articles"},
-    { name: "Контакты", link: "contact"},
-    { name: "Наши работы", link: "photo-galery"},
-    { name: "Акции", link: "discount"},
-    { name: "Лицензии и сертификаты", link: "license"},
-]
+import {useState} from "react";
+import { navigationLinks } from "@/data/navigation";
 
 
 const Navbar = () => {
@@ -56,7 +38,7 @@ const Navbar = () => {
                                     <SheetTitle className={"text-2xl"}>Меню</SheetTitle>
                                 </SheetHeader>
                                 <div className={"flex flex-col gap-4 mt-4"}>
-                                    {links.map((link) => (
+                                    {navigationLinks.map((link) => (
                                         <Link
                                             key={link.link}
                                             className={"px-4 py-2 hover:bg-gray-100 rounded-md text-gray-800 hover:text-primary text-lg font-medium border-b border-gray-200 last:border-b-0"}
@@ -94,7 +76,7 @@ const Navbar = () => {
                 {/* Links */}
                 <div className={"flex justify-between items-center py-4 max-w-7xl container mx-auto px-10 text-white"}>
                     {
-                        links.map((link) => (
+                        navigationLinks.map((link) => (
                             <Link
                                 key={link.link}
                                 className={`px-2 py-1 hover:bg-white rounded-md hover:text-primary text-lg font-semibold ${

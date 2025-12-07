@@ -32,10 +32,8 @@ const ContactBanner = () => {
 
       
         <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-md transition duration-200">
-            <a href="/contact">Заказать звонок</a>
+          Заказать звонок
         </button>
-
-
       </div>
     </div>
   );
