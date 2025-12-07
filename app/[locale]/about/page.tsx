@@ -1,4 +1,4 @@
-import AccordionAbout from "@/app/about/components/AccordionAbout";
+import AccordionAbout from "./components/AccordionAbout";
 import { aboutMetadata } from "@/data/metadata";
 
 export const metadata = aboutMetadata;

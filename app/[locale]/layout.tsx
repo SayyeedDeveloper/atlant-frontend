@@ -1,6 +1,10 @@
-import type { Metadata } from "next";
+import {NextIntlClientProvider, hasLocale} from 'next-intl';
+import {routing} from "@/i18n/routing";
+import {notFound} from 'next/navigation';
+import {getMessages} from "next-intl/server";
+import '../globals.css'
+import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -13,6 +17,11 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+type Props = {
+    children: React.ReactNode;
+    params: Promise<{locale: string}>
+};
 
 export const metadata: Metadata = {
   title: {
@@ -42,22 +51,23 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Navbar/>
-        {children}
+export default async function LocaleLayout({children, params}: Props) {
+    const {locale} = await params;
+    if (!hasLocale(routing.locales, locale)) {
+        notFound();
+    }
 
-        <Footer/>
+    const messages = await getMessages();
 
-      </body>
-    </html>
-  );
+    return (
+        <html lang={locale}>
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <NextIntlClientProvider messages={messages}>
+            <Navbar/>
+            {children}
+            <Footer/>
+        </NextIntlClientProvider>
+        </body>
+        </html>
+    );
 }

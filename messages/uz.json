@@ -1,0 +1,79 @@
+{
+  "navbar": {
+    "links": {
+      "home": "Bosh sahifa",
+      "about": "Biz haqimizda",
+      "catalog": "Katalog",
+      "payment": "To'lov va yetkazib berish",
+      "services": "Xizmatlar",
+      "contacts": "Aloqa",
+      "gallery": "Bizning ishlar",
+      "discounts": "Aksiyalar",
+      "licenses": "Litsenziyalar va sertifikatlar"
+    }
+  },
+  "home": {
+    "benefits": {
+      "title": "Bizning afzalliklarimiz"
+    },
+    "catalog": {
+      "title": "Mahsulotlar katalogi"
+    },
+    "gallery": {
+      "title": "Foto galereya",
+      "showAll": "Barchasini ko'rsatish"
+    }
+  },
+  "products": {
+    "catalog1": "Suv tozalash filtrlari",
+    "catalog2": "Filtrlar uchun ehtiyot qismlar",
+    "catalog3": "Avtomoykalarga suv filtrlari",
+    "catalog4": "Sanoat korxonalari uchun suv filtrlari",
+    "catalog5": "Sana printerlari",
+    "catalog6": "Issiqxonalar uchun filtrlar",
+    "catalog7": "Etiketkalash apparatlari",
+    "catalog8": "Faollashtirilgan ko'mir",
+    "recommended1": "Suv filtri",
+    "recommended2": "Faollashtirilgan ko'mir",
+    "recommended3": "Oldindan tozalash filtri",
+    "recommended4": "Sana printeri",
+    "recommended5": "Etiketkalash apparati"
+  },
+  "about": {
+    "title": "Biz haqimizda"
+  },
+  "category": {
+    "title": "Mahsulotlar katalogi"
+  },
+  "contact": {
+    "title": "Aloqa"
+  },
+  "payment": {
+    "title": "To'lov va yetkazib berish"
+  },
+  "services": {
+    "title": "Bizning xizmatlarimiz",
+    "underConstruction": "Sahifa ishlab chiqilmoqda"
+  },
+  "discounts": {
+    "title": "Aksiyalar va maxsus takliflar",
+    "underConstruction": "Sahifa ishlab chiqilmoqda"
+  },
+  "licenses": {
+    "title": "Litsenziyalar va sertifikatlar",
+    "underConstruction": "Sahifa ishlab chiqilmoqda"
+  },
+  "gallery": {
+    "title": "Foto galereya",
+    "image": "Loyiha"
+  },
+  "errors": {
+    "title": "Nimadir noto'g'ri ketdi!",
+    "description": "Sahifani yuklashda xatolik yuz berdi. Iltimos, qayta urinib ko'ring.",
+    "retry": "Qayta urinib ko'ring",
+    "notFoundTitle": "Sahifa topilmadi",
+    "notFoundDescription": "Kechirasiz, siz qidirayotgan sahifa mavjud emas yoki ko'chirilgan.",
+    "backHome": "Bosh sahifaga qaytish"
+  },
+  "loading": "Yuklanmoqda..."
+}

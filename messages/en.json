@@ -1,0 +1,79 @@
+{
+  "navbar": {
+    "links": {
+      "home": "Home",
+      "about": "About",
+      "catalog": "Catalog",
+      "payment": "Payment & Delivery",
+      "services": "Services",
+      "contacts": "Contacts",
+      "gallery": "Our Works",
+      "discounts": "Discounts",
+      "licenses": "Licenses & Certificates"
+    }
+  },
+  "home": {
+    "benefits": {
+      "title": "Our Advantages"
+    },
+    "catalog": {
+      "title": "Product Catalog"
+    },
+    "gallery": {
+      "title": "Photo Gallery",
+      "showAll": "Show All"
+    }
+  },
+  "products": {
+    "catalog1": "Water Filtration Systems",
+    "catalog2": "Filter Spare Parts",
+    "catalog3": "Water Filters for Car Washes",
+    "catalog4": "Industrial Water Filters",
+    "catalog5": "Date Printers",
+    "catalog6": "Filters for Greenhouses",
+    "catalog7": "Labeling Machines",
+    "catalog8": "Activated Carbon",
+    "recommended1": "Water Filter",
+    "recommended2": "Activated Carbon",
+    "recommended3": "Pre-filter",
+    "recommended4": "Date Printer",
+    "recommended5": "Labeling Machine"
+  },
+  "about": {
+    "title": "About Us"
+  },
+  "category": {
+    "title": "Product Catalog"
+  },
+  "contact": {
+    "title": "Contacts"
+  },
+  "payment": {
+    "title": "Payment & Delivery"
+  },
+  "services": {
+    "title": "Our Services",
+    "underConstruction": "Page under construction"
+  },
+  "discounts": {
+    "title": "Discounts & Special Offers",
+    "underConstruction": "Page under construction"
+  },
+  "licenses": {
+    "title": "Licenses & Certificates",
+    "underConstruction": "Page under construction"
+  },
+  "gallery": {
+    "title": "Photo Gallery",
+    "image": "Project"
+  },
+  "errors": {
+    "title": "Something went wrong!",
+    "description": "An error occurred while loading the page. Please try again.",
+    "retry": "Try Again",
+    "notFoundTitle": "Page Not Found",
+    "notFoundDescription": "Sorry, the page you are looking for does not exist or has been moved.",
+    "backHome": "Back to Home"
+  },
+  "loading": "Loading..."
+}

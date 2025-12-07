@@ -3,18 +3,31 @@
 import Image from "next/image";
 import {FaRegHeart} from "react-icons/fa";
 import {FiMenu, FiSearch, FiShoppingCart} from "react-icons/fi";
+import { IoHome } from "react-icons/io5";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {Sheet, SheetContent, SheetTitle, SheetTrigger, SheetHeader} from "@/components/ui/sheet";
 import {useState} from "react";
-import { navigationLinks } from "@/data/navigation";
+import { useTranslations } from "next-intl";
+import LanguageSwitcher from "@/components/shared/LanguageSwitcher";
 
 
 const Navbar = () => {
-
+    const t = useTranslations("navbar");
     const pathname = usePathname();
-
     const [isSheetOpen, setIsSheetOpen] = useState(false);
+
+    const navigationLinks = [
+        { name: <IoHome className="w-6 h-6" />, link: "", key: "home" },
+        { name: t("links.about"), link: "about", key: "about" },
+        { name: t("links.catalog"), link: "category", key: "catalog" },
+        { name: t("links.payment"), link: "payment-delivery", key: "payment" },
+        { name: t("links.services"), link: "articles", key: "services" },
+        { name: t("links.contacts"), link: "contact", key: "contacts" },
+        { name: t("links.gallery"), link: "photo-galery", key: "gallery" },
+        { name: t("links.discounts"), link: "discount", key: "discounts" },
+        { name: t("links.licenses"), link: "license", key: "licenses" },
+    ];
 
     const handleLinkClick = () => {
         setIsSheetOpen(false);
@@ -63,7 +76,8 @@ const Navbar = () => {
                     </div>
 
                     {/* Buttons */}
-                    <div className={"flex items-center justify-between gap-4"}>
+                    <div className={"flex items-center justify-between gap-3"}>
+                        <LanguageSwitcher />
                         <FaRegHeart className={"w-6 h-6 text-primary hover:text-primary/50"}/>
                         <FiShoppingCart className={"w-6 h-6 text-primary hover:text-primary/50"}/>
                         <FiSearch  className={"block sm:hidden w-6 h-6 text-primary hover:text-primary/50"}/>

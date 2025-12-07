@@ -13,7 +13,7 @@ const SheetOverlay = React.forwardRef<
 >(({ className, ...props }, ref) => (
     <SheetPrimitive.Overlay
         className={cn(
-            "fixed inset-0 z-50 bg-black/80",
+            "fixed inset-0 z-[100] bg-black/80",
             className
         )}
         {...props}
@@ -33,7 +33,7 @@ const SheetContent = React.forwardRef<
         <SheetPrimitive.Content
             ref={ref}
             className={cn(
-                "fixed z-50 gap-4 bg-white p-6 shadow-lg transition ease-in-out",
+                "fixed z-[100] gap-4 bg-white p-6 shadow-lg transition ease-in-out",
                 side === "left" && "inset-y-0 left-0 h-full w-3/4 border-r sm:max-w-sm",
                 side === "right" && "inset-y-0 right-0 h-full w-3/4 border-l sm:max-w-sm",
                 className
