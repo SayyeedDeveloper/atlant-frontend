@@ -40,7 +40,72 @@
     "recommended5": "Etiketkalash apparati"
   },
   "about": {
-    "title": "Biz haqimizda"
+    "title": "Biz haqimizda",
+    "accordion": {
+      "company": {
+        "title": "Atlant Fortuna",
+        "paragraph1": "\"Atlant Fortuna\" MChJ 2016-yilda O'zbekiston bozoriga yuqori texnologiyali va innovatsion suv tozalash usullarini joriy etish uchun tashkil etilgan. Kompaniyamizning asosiy mahsuloti teskari osmos texnologiyasiga asoslangan suv tozalash tizimlari bo'lib, bu hozirgi kunda suv tozalashda eng zamonaviy va ilg'or texnologiya hisoblanadi. Biz xom suvning ifloslanish darajasidan va buyurtmachining yakuniy suvga qo'ygan talablariga asoslanib, turli xil konfiguratsiya va komplektatsiyalardagi tizimlarni ishlab chiqarishga qodiramiz.",
+        "paragraph2": "\"Atlant Fortuna\" MChJ O'zbekistonda soatiga 50000 litrdan ortiq quvvatga ega suv tozalash tizimlarini ishlab chiqarishni joriy etgan birinchi kompaniyadir. Tashkil etilgan vaqtdan boshlab kompaniya soatiga 1000 litrdan 50000 litrgacha bo'lgan quvvatdagi 100 dan ortiq suv tozalash loyihalarini amalga oshirdi. Bizning suv tozalash tizimlarimiz O'zbekiston Respublikasi xalq xo'jaligining ko'plab tarmoqlarida muvaffaqiyatli ishlaydi.",
+        "paragraph3": "Shuningdek, biz suv tozalash tizimlariga qo'shimcha qismlarni, masalan, teskari osmos membranalari, ultrafiltrlash membranalari, kartrijli filtrlar, nasoslar, ionalmashinuv qatronlari va boshqa qo'shimcha qismlarni yetkazib beramiz. Ular Hydranautics (AQSH), TORAY (Yaponiya), DOW Filmtec (AQSH), VONTRON (Xitoy), CSM (Janubiy Koreya) va boshqalar kabi suv tozalash sohasida yetakchi jahon brendlari tomonidan ishlab chiqarilgan."
+      },
+      "partners": {
+        "title": "Bizning hamkorlarimiz",
+        "list": [
+          "Navoiy kon-metallurgiya kombinati kompaniyasi",
+          "Enter Engineering PTE LTD kompaniyasi",
+          "Eriell Uzbekistan kompaniyasi",
+          "UZBAT AJ British American Tobacco",
+          "UZAUTOMOTORS POWERTRAIN AJ",
+          "AKFA ASSEMBLY MChJ AKFA savdo belgisi",
+          "Artel Electronics Manufacturing MChJ ARTEL savdo belgisi",
+          "Knauf Gips Buxoro MChJ",
+          "Jizzah Organic xoldingi",
+          "Muborak neft-gaz qazib olish boshqarmasi kompaniyasi",
+          "Buxoro Agroklaster DZZ MChJ Lattico savdo belgisi",
+          "Dehqonobod kaliy zavodi MChJ",
+          "Qo'ng'irot soda zavodi MChJ",
+          "Obod mahalla va Obod qishloq loyihalari bo'yicha xususiy pudratchi tashkilotlar",
+          "Silver-Vita MChJ Silver ichimlik suvi",
+          "Real best hamkor MChJ Zam-zam ichimlik suvi",
+          "Zarafshon Golden Group MChJ",
+          "Yangi Asr FX Sof IN savdo belgisi",
+          "MYUNG SUNG PLACON LTD kompaniyasining O'zbekistondagi vakolatxonasi (Janubiy Koreya)",
+          "Asya Sera kompaniyasining O'zbekistondagi vakolatxonasi (Turkiya)",
+          "Xususiy issiqxona xo'jaliklari",
+          "Xususiy ichimlik suvi ishlab chiqaruvchilar va boshqa ko'plab kompaniyalar"
+        ]
+      },
+      "offices": {
+        "title": "Ofis manzillari",
+        "table": {
+          "office": "Ofis",
+          "location": "Manzil",
+          "main": "Asosiy ofis",
+          "mainAddress": "Buxoro viloyati, Kogon shahri, Mahmud Torobiy ko'chasi, 183",
+          "tashkent": "Toshkent filiali",
+          "tashkentAddress": "Toshkent sh., Chilonzor tumani, Gavhar ko'chasi, 122A/1-uy",
+          "karshi": "Qarshi filiali",
+          "karshiAddress": "Qashqadaryo viloyati, Qarshi sh., Kilichbek-Qo'rg'oncha MSG, Kamandi ko'chasi, 63A-uy",
+          "urgench": "Urganch filiali",
+          "urgenchAddress": "Xorazm viloyati, Urganch tumani, Uchko'prik fuqarolar yig'ini, Farhod ko'chasi, 78"
+        }
+      },
+      "schedule": {
+        "title": "Ish grafigi",
+        "days": {
+          "monday": "Dushanba",
+          "tuesday": "Seshanba",
+          "wednesday": "Chorshanba",
+          "thursday": "Payshanba",
+          "friday": "Juma",
+          "saturday": "Shanba",
+          "sunday": "Yakshanba"
+        },
+        "hours": "Ish vaqti",
+        "break": "Tanaffus",
+        "dayOff": "Dam olish kuni"
+      }
+    }
   },
   "category": {
     "title": "Mahsulotlar katalogi"

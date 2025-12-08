@@ -40,7 +40,72 @@
     "recommended5": "Labeling Machine"
   },
   "about": {
-    "title": "About Us"
+    "title": "About Us",
+    "accordion": {
+      "company": {
+        "title": "Atlant Fortuna",
+        "paragraph1": "Atlant Fortuna LLC was established in 2016 to introduce high-tech and innovative water treatment methods to the Uzbekistan market. Our company's main product is water purification systems based on reverse osmosis technology, which is currently the most modern and advanced technology in water treatment. We have the ability to produce systems of various configurations and equipment based on the degree of raw water contamination and customer requirements for the final water.",
+        "paragraph2": "Atlant Fortuna LLC is the first company in Uzbekistan to introduce the production of water purification systems with a capacity of more than 50,000 liters per hour. Since its inception, the company has launched more than 100 water treatment projects with capacities ranging from 1,000 to 50,000 liters per hour. Our water purification systems operate successfully in many sectors of the economy of the Republic of Uzbekistan.",
+        "paragraph3": "We also supply components for water treatment systems such as reverse osmosis membranes, ultrafiltration membranes, cartridge filters, pumps, ion exchange resins and other components manufactured by world-leading water treatment brands such as Hydranautics (USA), TORAY (Japan), DOW Filmtec (USA), VONTRON (China), CSM (South Korea) and others."
+      },
+      "partners": {
+        "title": "Our Partners",
+        "list": [
+          "Navoi Mining and Metallurgical Company",
+          "Enter Engineering PTE LTD",
+          "Eriell Uzbekistan",
+          "British American Tobacco JSC UZBAT",
+          "UZAUTOMOTORS POWERTRAIN JSC",
+          "AKFA ASSEMBLY LLC (AKFA trademark)",
+          "Artel Electronics Manufacturing LLC (ARTEL trademark)",
+          "Knauf Gips Bukhara LLC",
+          "Jizzah Organic Holding",
+          "Mubarek Oil and Gas Production Department",
+          "Buxoro Agroklaster DZZ LLC (Lattico trademark)",
+          "Dekhkanabad Potash Plant LLC",
+          "Kungrad Soda Plant LLC",
+          "Private contractors for Obod Mahalla and Obod Kishloq projects",
+          "Silver-Vita LLC (Silver drinking water)",
+          "Real best hamkor LLC (Zam-zam drinking water)",
+          "Zarafshon Golden Group LLC",
+          "Yangi Asr Farm (Sof IN trademark)",
+          "MYUNG SUNG PLACON LTD Representative Office (South Korea)",
+          "Asya Sera Representative Office (Turkey)",
+          "Private greenhouse farms",
+          "Private drinking water producers and many other companies"
+        ]
+      },
+      "offices": {
+        "title": "Office Addresses",
+        "table": {
+          "office": "Office",
+          "location": "Location",
+          "main": "Main Office",
+          "mainAddress": "Bukhara region, Kagan city, Mahmud Torobiy str., 183",
+          "tashkent": "Tashkent Branch",
+          "tashkentAddress": "Tashkent city, Chilanzar district, Gavhar str., building 122A/1",
+          "karshi": "Karshi Branch",
+          "karshiAddress": "Kashkadarya region, Karshi city, Kilichbek-Kurgoncha MSG, Kamandi str., building 63A",
+          "urgench": "Urgench Branch",
+          "urgenchAddress": "Khorezm region, Urgench district, Uchkuprik citizens' meeting, Farhod str., 78"
+        }
+      },
+      "schedule": {
+        "title": "Working Hours",
+        "days": {
+          "monday": "Monday",
+          "tuesday": "Tuesday",
+          "wednesday": "Wednesday",
+          "thursday": "Thursday",
+          "friday": "Friday",
+          "saturday": "Saturday",
+          "sunday": "Sunday"
+        },
+        "hours": "Hours",
+        "break": "Break",
+        "dayOff": "Day Off"
+      }
+    }
   },
   "category": {
     "title": "Product Catalog"

@@ -6,6 +6,15 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true, // Temporarily ignore ESLint errors during build
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'atlant-bucket.s3.eu-north-1.amazonaws.com',
+        pathname: '/**',
+      },
+    ],
+  },
 };
 
 const withNextIntl = createNextIntlPlugin();
