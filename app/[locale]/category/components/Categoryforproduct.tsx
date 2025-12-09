@@ -2,22 +2,21 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {useRouter} from "next/navigation";
+import {catalogProducts} from "@/data/products";
+import {useTranslations} from "next-intl";
+import Link from "next/link";
 
+interface TranslatedCatalogProduct {
+    id: number;
+    title: string;
+    image: string;
+}
 
 interface Category {
     id: number;
     title: string;
     image: string;
 }
-
-const categories: Category[] = [
-    { id: 1, title: "Фильтры очистки воды", image: "/images/Category1.webp" },
-    { id: 2, title: "Оборудование для газированной воды", image: "/images/Category2.webp" },
-    { id: 3, title: "Бытовые фильтры для квартир и домов", image: "/images/Category3.webp" },
-    { id: 4, title: "Диспенсеры (кулеры) для воды", image: "/images/Category4.webp" },
-    { id: 5, title: "Запасные части для фильтров воды", image: "/images/Category5.webp" },
-    { id: 6, title: "Прочие товары и оборудование", image: "/images/Category6.webp" },
-];
 
 
 interface Product {
@@ -38,13 +37,22 @@ const products: Product[] = [
 
 const Catalogforproduct = () => {
     const router = useRouter();
+    const t = useTranslations("category");
+    const tProducts = useTranslations("products");
+
+    // Get translated titles and combine with images from static data
+    const translatedCatalogProducts: TranslatedCatalogProduct[] = tProducts.raw("catalogProducts").map((title: string, index: number) => ({
+        id: catalogProducts[index].id,
+        title: title,
+        image: catalogProducts[index].image
+    }));
     return (
         <div className="bg-gradient-to-b from-blue-50 to-white min-h-screen flex flex-col">
 
             <header className="bg-white text-black py-8 shadow-lg">
                 <div className="max-w-7xl mx-auto px-4 text-center">
                     <h1 className="text-3xl md:text-4xl font-bold tracking-wide uppercase">
-                        Каталог
+                        {t("pageTitle")}
                     </h1>
                 </div>
             </header>
@@ -56,7 +64,7 @@ const Catalogforproduct = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                 >
-                    {categories.map((item) => (
+                    {translatedCatalogProducts.map((item) => (
                         <motion.div
                             key={item.id}
                             whileHover={{ scale: 1.05 }}
@@ -131,7 +139,7 @@ const Catalogforproduct = () => {
 
                                     <div className="flex justify-between mt-4 gap-2">
                                         <button className="flex-1 border border-blue-600 text-blue-600 py-2 rounded-full text-sm font-medium hover:bg-blue-600 hover:text-white transition">
-                                            <a href="/contact">Купить</a>
+                                            <Link href="/contact">Купить</Link>
                                         </button>
 
                                         <button className="flex-1 border border-blue-600 text-blue-600 py-2 rounded-full text-sm font-medium hover:bg-blue-600 hover:text-white transition">

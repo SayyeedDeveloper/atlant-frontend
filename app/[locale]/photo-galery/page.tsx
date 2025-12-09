@@ -6,7 +6,7 @@ export const metadata = photoGalleryMetadata;
 export default function PhotoGallery() {
   return (
     <div className="mt-32">
-      <Gallery />
+      <Gallery showButton={false} />
     </div>
   );
 }

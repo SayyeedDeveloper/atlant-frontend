@@ -2,8 +2,23 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { catalogProducts } from "@/data/products";
+import { useTranslations } from "next-intl";
+
+interface TranslatedProduct {
+    id: number;
+    title: string;
+    image: string;
+}
 
 const Catalogproduct: React.FC = () => {
+    const t = useTranslations("products");
+
+    // Get translated titles and combine with images from static data
+    const translatedProducts: TranslatedProduct[] = t.raw("catalogProducts").map((title: string, index: number) => ({
+        id: catalogProducts[index].id,
+        title: title,
+        image: catalogProducts[index].image
+    }));
     return (
         <section className="relative min-h-screen bg-gradient-to-br bg-white via-white bg-white-100 py-10 overflow-hidden">
             {/* Background glow */}
@@ -13,13 +28,13 @@ const Catalogproduct: React.FC = () => {
                 {/* Title */}
                 <div className="text-center mb-16">
                     <h2 className="text-3xl font-extrabold text-gray-800 tracking-tight mb-4">
-                        Каталог продуктов
+                        {t("catalogTitle")}
                     </h2>
                 </div>
 
                 {/* Product grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-                    {catalogProducts.map((item, index) => (
+                    {translatedProducts.map((item, index) => (
                         <motion.div
                             key={item.id}
                             initial={{ opacity: 0, y: 40 }}

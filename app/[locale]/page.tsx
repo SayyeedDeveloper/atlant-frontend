@@ -14,7 +14,7 @@ export default function Home() {
         <Benefits />
         <Callretail/>
         <Catalogproduct/>
-        <Gallery/>
+        <Gallery limit={6} />
       </div>
     </div>
   );

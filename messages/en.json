@@ -47,6 +47,15 @@
     }
   },
   "products": {
+    "catalogTitle": "Product Catalog",
+    "catalogProducts": [
+      "Water Filtration Systems",
+      "Carbonated Water Equipment",
+      "Household Filters for Apartments and Houses",
+      "Water Dispensers (Coolers)",
+      "Water Filter Spare Parts",
+      "Other Goods and Equipment"
+    ],
     "catalog1": "Water Filtration Systems",
     "catalog2": "Filter Spare Parts",
     "catalog3": "Water Filters for Car Washes",
@@ -130,7 +139,8 @@
     }
   },
   "category": {
-    "title": "Product Catalog"
+    "title": "Catalog",
+    "pageTitle": "Catalog"
   },
   "contact": {
     "title": "Contacts"

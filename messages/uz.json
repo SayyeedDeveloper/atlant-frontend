@@ -47,6 +47,15 @@
     }
   },
   "products": {
+    "catalogTitle": "Mahsulotlar katalogi",
+    "catalogProducts": [
+      "Suv tozalash filtrlari",
+      "Gazlangan suv uchun uskunalar",
+      "Kvartiralar va uylar uchun maishiy filtrlar",
+      "Suv dispenserlari (kulerlar)",
+      "Suv filtrlari uchun ehtiyot qismlar",
+      "Boshqa tovarlar va uskunalar"
+    ],
     "catalog1": "Suv tozalash filtrlari",
     "catalog2": "Filtrlar uchun ehtiyot qismlar",
     "catalog3": "Avtomoykalarga suv filtrlari",
@@ -130,7 +139,8 @@
     }
   },
   "category": {
-    "title": "Mahsulotlar katalogi"
+    "title": "Mahsulotlar katalogi",
+    "pageTitle": "Katalog"
   },
   "contact": {
     "title": "Aloqa"

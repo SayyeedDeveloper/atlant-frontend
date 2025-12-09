@@ -6,14 +6,12 @@ export interface Product {
 }
 
 export const catalogProducts: Product[] = [
-  { id: 1, title: "Фильтры очистки воды", image: "/images/Catalog1.webp" },
-  { id: 2, title: "Запасные части для фильтров", image: "/images/Catalog5.webp" },
-  { id: 3, title: "Фильтры воды для автомоек", image: "/images/Catalog3.webp" },
-  { id: 4, title: "Фильтры воды для промышленных предприятий", image: "/images/Catalog10.webp" },
-  { id: 5, title: "Принтеры даты", image: "/images/Catalog2.webp" },
-  { id: 6, title: "Фильтры для теплиц", image: "/images/Catalog7.webp" },
-  { id: 7, title: "Этикетировочные аппараты", image: "/images/Catalog6.webp" },
-  { id: 8, title: "Активированный уголь", image: "/images/Catalog9.webp" },
+  { id: 1, title: "Фильтры очистки воды", image: "/images/Category1.webp" },
+  { id: 2, title: "Оборудование для газированной воды", image: "/images/Category2.webp" },
+  { id: 3, title: "Бытовые фильтры для квартир и домов", image: "/images/Category3.webp" },
+  { id: 4, title: "Диспенсеры (кулеры) для воды", image: "/images/Category4.webp" },
+  { id: 5, title: "Запасные части для фильтров воды", image: "/images/Category5.webp" },
+  { id: 6, title: "Прочие товары и оборудование", image: "/images/Category6.webp" },
 ];
 
 export const recommendedProducts: Product[] = [
