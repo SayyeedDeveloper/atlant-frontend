@@ -146,7 +146,77 @@
     "title": "Contacts"
   },
   "payment": {
-    "title": "Payment & Delivery"
+    "title": "Payment & Delivery",
+    "hero": {
+      "title1": "Payment",
+      "title2": "Delivery",
+      "description": "Fast and reliable delivery of goods throughout Uzbekistan. Choose a convenient way to receive your order.",
+      "button": "Learn More",
+      "safePackaging": "Safe Packaging",
+      "fastDelivery": "Fast Delivery"
+    },
+    "paymentMethods": {
+      "title": "Payment Methods",
+      "cash": {
+        "title": "Cash",
+        "desc": "Cash payment at our offices",
+        "locations": [
+          "Bukhara, Kagan city, Mahmud Torobiy str., 183",
+          "Tashkent, Chilanzar, Gavhar str., 122A1",
+          "Karshi, Kamandi str., 63A",
+          "Urgench, Farhod str., 78"
+        ]
+      },
+      "transfer": {
+        "title": "Bank Transfer",
+        "desc": "Non-cash payment through bank",
+        "details": [
+          "Atlant Fortuna LLC",
+          "Account: 20208000800705643001",
+          "Bank: Uzpromstroybank",
+          "Bank Code: 00440 | TIN: 304440114",
+          "100% Prepayment"
+        ]
+      },
+      "terminal": {
+        "title": "UzCard / HUMO Terminal",
+        "desc": "Card payment at sales office",
+        "tags": ["UzCard", "HUMO", "Instant Payment"]
+      },
+      "online": {
+        "title": "Online Payment (Click)",
+        "desc": "Fast online payment via Click",
+        "steps": [
+          "Enter \"ATLANT FORTUNA AF\" in Click search",
+          "Select the company",
+          "Enter order number, phone and amount",
+          "Pay",
+          "Wait for confirmation call"
+        ]
+      }
+    },
+    "deliveryMethods": {
+      "title": "Delivery Methods",
+      "courier": {
+        "title": "BTS Courier Delivery",
+        "price": "100,000 UZS",
+        "desc": "Delivery to all regions of Uzbekistan",
+        "calculateCost": "Calculate Cost",
+        "tags": ["Fast Delivery", "Cargo Tracking", "All Regions"]
+      },
+      "pickup": {
+        "title": "Pickup",
+        "price": "Free",
+        "desc": "Pick up goods at any office",
+        "locations": ["Bukhara, Kagan", "Tashkent", "Karshi", "Urgench"]
+      },
+      "transport": {
+        "title": "Transport Company",
+        "price": "from 1,000,000 UZS",
+        "desc": "Delivery of large equipment",
+        "tags": ["Free Loading", "Unloading at Buyer's Expense", "Freight Transport"]
+      }
+    }
   },
   "services": {
     "title": "Our Services",

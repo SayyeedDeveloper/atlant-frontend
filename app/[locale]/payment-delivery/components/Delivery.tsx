@@ -5,6 +5,7 @@ import { MdPayments } from "react-icons/md";
 import { motion } from "framer-motion";
 import { MapPin, ArrowRight, Package, Clock } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 type CardItem = {
     icon: React.ReactNode;
@@ -16,6 +17,7 @@ type CardItem = {
     tags?: string[];
     steps?: string[];
     link?: string;
+    calculateCost?: string;
 };
 
 type CardSectionProps = {
@@ -25,6 +27,7 @@ type CardSectionProps = {
 };
 
 const Delivery = () => {
+    const t = useTranslations("payment");
     const scrollToContent = () => {
         const element = document.getElementById('payment-section');
         if (element) {
@@ -35,52 +38,53 @@ const Delivery = () => {
     const payments: CardItem[] = [
         {
             icon: <FaMoneyBillWave className="text-blue-500 text-4xl" />,
-            title: "Наличными",
-            desc: "Оплата наличными в наших офисах",
-            locations: ["Бухара, г. Каган, ул. Махмуд Торобий, 183", "Ташкент, Чиланзар, ул.Гавхар, 122А1", "Карши, ул. Каманди, 63А", "Ургенч, ул. Фарход, 78"]
+            title: t("paymentMethods.cash.title"),
+            desc: t("paymentMethods.cash.desc"),
+            locations: t.raw("paymentMethods.cash.locations")
         },
         {
             icon: <MdPayments className="text-blue-500 text-4xl" />,
-            title: "Перечислением",
-            desc: "Безналичная оплата через банк",
-            details: ["ООО \"Atlant Fortuna\"", "Р/с: 20208000800705643001", "АКБ \"Узпромстройбанк\"", "МФО: 00440 | ИНН: 304440114", "Предоплата 100%"]
+            title: t("paymentMethods.transfer.title"),
+            desc: t("paymentMethods.transfer.desc"),
+            details: t.raw("paymentMethods.transfer.details")
         },
         {
             icon: <FaCreditCard className="text-blue-500 text-4xl" />,
-            title: "Терминал UzCard / HUMO",
-            desc: "Оплата картой в офисе продаж",
-            tags: ["UzCard", "HUMO", "Мгновенная оплата"]
+            title: t("paymentMethods.terminal.title"),
+            desc: t("paymentMethods.terminal.desc"),
+            tags: t.raw("paymentMethods.terminal.tags")
         },
         {
             icon: <FaGlobe className="text-blue-500 text-4xl" />,
-            title: "Онлайн оплата (Click)",
-            desc: "Быстрая онлайн оплата через Click",
-            steps: ["Введите \"ATLANT FORTUNA AF\" в поиске Click", "Выберите компанию", "Укажите номер заказа, телефон и сумму", "Оплатите", "Ожидайте звонка для подтверждения"]
+            title: t("paymentMethods.online.title"),
+            desc: t("paymentMethods.online.desc"),
+            steps: t.raw("paymentMethods.online.steps")
         },
     ];
 
     const deliveries: CardItem[] = [
         {
             icon: <FaTruck className="text-blue-500 text-4xl" />,
-            title: "Курьерская доставка BTS",
-            price: "100 000 сум",
-            desc: "Доставка по всем регионам Узбекистана",
+            title: t("deliveryMethods.courier.title"),
+            price: t("deliveryMethods.courier.price"),
+            desc: t("deliveryMethods.courier.desc"),
             link: "https://bts.uz/ru/calculate",
-            tags: ["Быстрая доставка", "Отслеживание груза", "Все регионы"]
+            calculateCost: t("deliveryMethods.courier.calculateCost"),
+            tags: t.raw("deliveryMethods.courier.tags")
         },
         {
             icon: <FaStore className="text-blue-500 text-4xl" />,
-            title: "Самовывоз",
-            price: "Бесплатно",
-            desc: "Заберите товар в любом офисе",
-            locations: ["Бухара, г. Каган", "Ташкент", "Карши", "Ургенч"]
+            title: t("deliveryMethods.pickup.title"),
+            price: t("deliveryMethods.pickup.price"),
+            desc: t("deliveryMethods.pickup.desc"),
+            locations: t.raw("deliveryMethods.pickup.locations")
         },
         {
             icon: <FaTruck className="text-blue-500 text-4xl" />,
-            title: "Транспортная компания",
-            price: "от 1 000 000 сум",
-            desc: "Доставка крупногабаритного оборудования",
-            tags: ["Бесплатная погрузка", "Разгрузка за счёт покупателя", "Грузовой автотранспорт"]
+            title: t("deliveryMethods.transport.title"),
+            price: t("deliveryMethods.transport.price"),
+            desc: t("deliveryMethods.transport.desc"),
+            tags: t.raw("deliveryMethods.transport.tags")
         },
     ];
 
@@ -161,7 +165,7 @@ const Delivery = () => {
                         {item.link && (
                             <a href={item.link} target="_blank" rel="noopener noreferrer"
                                className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold mt-4">
-                                Рассчитать стоимость
+                                {item.calculateCost}
                                 <ArrowRight className="w-5 h-5" />
                             </a>
                         )}
@@ -188,12 +192,12 @@ const Delivery = () => {
                             transition={{ duration: 0.8 }}
                         >
                             <h1 className="text-5xl md:text-6xl font-black mb-6">
-                                <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">Оплата</span>
+                                <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">{t("hero.title1")}</span>
                                 <br />
-                                <span className="text-blue-500">доставка</span>
+                                <span className="text-blue-500">{t("hero.title2")}</span>
                             </h1>
                             <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                                Быстрая и надежная доставка товаров по всему Узбекистану. Выберите удобный способ получения заказа.
+                                {t("hero.description")}
                             </p>
                             <motion.button
                                 onClick={scrollToContent}
@@ -201,17 +205,17 @@ const Delivery = () => {
                                 whileTap={{ scale: 0.95 }}
                                 className="px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold rounded-full shadow-xl transition-all cursor-pointer"
                             >
-                                Узнать больше
+                                {t("hero.button")}
                             </motion.button>
 
                             <div className="flex flex-wrap gap-4 mt-8">
                                 <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full border border-blue-50">
                                     <Package className="w-5 h-5 text-blue-500" />
-                                    <span className="text-sm font-semibold text-gray-700">Безопасная упаковка</span>
+                                    <span className="text-sm font-semibold text-gray-700">{t("hero.safePackaging")}</span>
                                 </div>
                                 <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full border border-blue-50">
                                     <Clock className="w-5 h-5 text-blue-500" />
-                                    <span className="text-sm font-semibold text-gray-700">Быстрая доставка</span>
+                                    <span className="text-sm font-semibold text-gray-700">{t("hero.fastDelivery")}</span>
                                 </div>
                             </div>
                         </motion.div>
@@ -237,8 +241,8 @@ const Delivery = () => {
             </div>
 
             <div id="payment-section" className="max-w-7xl mx-auto px-4 py-16">
-                <CardSection title="Способы оплаты" items={payments} isPayment={true} />
-                <CardSection title="Способы доставки" items={deliveries} isPayment={false} />
+                <CardSection title={t("paymentMethods.title")} items={payments} isPayment={true} />
+                <CardSection title={t("deliveryMethods.title")} items={deliveries} isPayment={false} />
             </div>
         </div>
     );

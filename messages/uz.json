@@ -146,7 +146,77 @@
     "title": "Aloqa"
   },
   "payment": {
-    "title": "To'lov va yetkazib berish"
+    "title": "To'lov va yetkazib berish",
+    "hero": {
+      "title1": "To'lov",
+      "title2": "yetkazib berish",
+      "description": "O'zbekiston bo'ylab tovarlarni tez va ishonchli yetkazib berish. Buyurtmani olishning qulay usulini tanlang.",
+      "button": "Batafsil",
+      "safePackaging": "Xavfsiz qadoqlash",
+      "fastDelivery": "Tez yetkazib berish"
+    },
+    "paymentMethods": {
+      "title": "To'lov usullari",
+      "cash": {
+        "title": "Naqd pul",
+        "desc": "Ofislarimizda naqd to'lov",
+        "locations": [
+          "Buxoro, Kogon sh., Mahmud Torobiy ko'chasi, 183",
+          "Toshkent, Chilonzor, Gavhar ko'chasi, 122A1",
+          "Qarshi, Kamandi ko'chasi, 63A",
+          "Urganch, Farhod ko'chasi, 78"
+        ]
+      },
+      "transfer": {
+        "title": "Bank o'tkazmasi",
+        "desc": "Bank orqali naqdsiz to'lov",
+        "details": [
+          "\"Atlant Fortuna\" MChJ",
+          "Hisob raqami: 20208000800705643001",
+          "\"Uzpromstroybank\" AKB",
+          "MFO: 00440 | INN: 304440114",
+          "100% oldindan to'lov"
+        ]
+      },
+      "terminal": {
+        "title": "UzCard / HUMO terminali",
+        "desc": "Sotish ofisida karta orqali to'lov",
+        "tags": ["UzCard", "HUMO", "Oniy to'lov"]
+      },
+      "online": {
+        "title": "Onlayn to'lov (Click)",
+        "desc": "Click orqali tez onlayn to'lov",
+        "steps": [
+          "Click qidiruvida \"ATLANT FORTUNA AF\" ni kiriting",
+          "Kompaniyani tanlang",
+          "Buyurtma raqamini, telefon va summani kiriting",
+          "To'lang",
+          "Tasdiqlash uchun qo'ng'iroqni kuting"
+        ]
+      }
+    },
+    "deliveryMethods": {
+      "title": "Yetkazib berish usullari",
+      "courier": {
+        "title": "BTS kuryer yetkazib berish",
+        "price": "100 000 so'm",
+        "desc": "O'zbekistonning barcha hududlariga yetkazib berish",
+        "calculateCost": "Narxni hisoblash",
+        "tags": ["Tez yetkazib berish", "Yukni kuzatish", "Barcha hududlar"]
+      },
+      "pickup": {
+        "title": "O'zi olib ketish",
+        "price": "Bepul",
+        "desc": "Tovarn iistalgan ofisdan olib keting",
+        "locations": ["Buxoro, Kogon", "Toshkent", "Qarshi", "Urganch"]
+      },
+      "transport": {
+        "title": "Transport kompaniyasi",
+        "price": "1 000 000 so'mdan",
+        "desc": "Yirik uskunalarni yetkazib berish",
+        "tags": ["Bepul yuklash", "Tushirish xaridorning hisobiga", "Yuk transporti"]
+      }
+    }
   },
   "services": {
     "title": "Bizning xizmatlarimiz",
