@@ -143,7 +143,59 @@
     "pageTitle": "Katalog"
   },
   "contact": {
-    "title": "Aloqa"
+    "title": "Aloqa",
+    "subtitle": "Boshlashga tayyormisiz? Biz bilan qulay usulda bog'laning",
+    "form": {
+      "title": "Xabar yuborish",
+      "name": {
+        "label": "Ismingiz",
+        "placeholder": "Ismingizni kiriting"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "your@email.com"
+      },
+      "phone": {
+        "label": "Telefon",
+        "placeholder": "+998 XX XXX XX XX"
+      },
+      "message": {
+        "label": "Xabar",
+        "placeholder": "Loyihangiz haqida bizga aytib bering..."
+      },
+      "submit": "Xabar yuborish",
+      "submitting": "Yuborilmoqda...",
+      "success": {
+        "title": "Ajoyib!",
+        "message": "Xabaringiz muvaffaqiyatli yuborildi.\nTez orada siz bilan bog'lanamiz!"
+      }
+    },
+    "info": {
+      "office": {
+        "title": "Bizning ofis",
+        "address": "Buxoro viloyati, Kogon shahri\nMahmud Torobiy ko'chasi, 183"
+      },
+      "email": {
+        "title": "Email"
+      },
+      "hours": {
+        "title": "Ish vaqti",
+        "weekdays": "Du - Ju",
+        "saturday": "Shanba",
+        "sunday": "Yakshanba",
+        "dayOff": "Dam olish kuni"
+      }
+    },
+    "team": {
+      "title": "Bizning jamoa",
+      "subtitle": "Bog'lanish uchun mutaxassisni tanlang",
+      "call": "Qo'ng'iroq qilish",
+      "modal": {
+        "title": "Qo'ng'iroq qilasizmi?",
+        "callNow": "Hozir qo'ng'iroq qilish",
+        "cancel": "Bekor qilish"
+      }
+    }
   },
   "payment": {
     "title": "To'lov va yetkazib berish",
@@ -227,8 +279,13 @@
     "underConstruction": "Sahifa ishlab chiqilmoqda"
   },
   "licenses": {
-    "title": "Litsenziyalar va sertifikatlar",
-    "underConstruction": "Sahifa ishlab chiqilmoqda"
+    "title": "Litsenziya Sertifikatlari",
+    "subtitle": "Bizning rasmiy ruxsatlar va akkreditatsiyalarimiz",
+    "buttons": {
+      "open": "Ochish",
+      "download": "PDF yuklab olish",
+      "openNewTab": "Yangi oynada ochish"
+    }
   },
   "gallery": {
     "title": "Foto galereya",

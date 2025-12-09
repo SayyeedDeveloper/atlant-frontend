@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { galleryImages } from "@/data/products";
 import { useTranslations } from "next-intl";
@@ -28,6 +28,18 @@ const Gallery = ({ limit, showButton = true }: GalleryProps) => {
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
       dedupingInterval: 60000, // 1 minute
+    }
+  );
+
+  // Prefetch full gallery data when showing limited view (for better UX when clicking "Show All")
+  // This runs in the background and caches the full dataset
+  useSWR(
+    limit ? '/api/gallery/public' : null, // Only prefetch when we're showing a limited view
+    () => fetchGalleryImages(),
+    {
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+      dedupingInterval: 60000,
     }
   );
 

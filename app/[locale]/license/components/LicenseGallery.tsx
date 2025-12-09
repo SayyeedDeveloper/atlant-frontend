@@ -1,46 +1,48 @@
 "use client";
 import React, { useState } from "react";
 import { X, Download, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
+import useSWR from "swr";
+import { fetchLicenses, getDownloadUrl, LicenseResponseDTO } from "@/lib/api/licenses";
 
-type ImageType = {
-    id: number;
+type LicenseType = {
+    id: string;
     src: string;
-    pdf: string;
+    fileId: string;
     title: string;
 };
 
-const images: ImageType[] = [
-    {
-        id: 1,
-        src: "/images/license1.jpg",
-        pdf: "/pdfs/license1.pdf",
-        title: "Лицензия №1",
-    },
-    {
-        id: 2,
-        src: "/images/license2.jpg",
-        pdf: "/pdfs/license2.pdf",
-        title: "Лицензия №2",
-    },
-    {
-        id: 3,
-        src: "/images/license3.jpg",
-        pdf: "/pdfs/license3.pdf",
-        title: "Лицензия №3",
-    },
-    {
-        id: 4,
-        src: "/images/license4.jpg",
-        pdf: "/pdfs/license4.pdf",
-        title: "Лицензия №4",
-    },
-];
-
 const LicenseGallery = () => {
-    const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
+    const t = useTranslations("licenses");
+    const params = useParams();
+    const locale = params?.locale as string || 'ru';
+
+    const [selectedImage, setSelectedImage] = useState<LicenseType | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const openModal = (img: ImageType) => {
+    // Fetch licenses with SWR
+    const { data: apiLicenses, error, isLoading } = useSWR(
+        `/api/licenses/public?locale=${locale}`,
+        () => fetchLicenses(locale),
+        {
+            revalidateOnFocus: false,
+            revalidateOnReconnect: false,
+            dedupingInterval: 60000,
+        }
+    );
+
+    // Map API response to component format
+    const images: LicenseType[] = apiLicenses && apiLicenses.length > 0
+        ? apiLicenses.map(license => ({
+            id: license.id,
+            src: license.image.url,
+            fileId: license.image.id,
+            title: license.title
+        }))
+        : [];
+
+    const openModal = (img: LicenseType) => {
         setSelectedImage(img);
         setIsModalOpen(true);
         document.body.style.overflow = "hidden";
@@ -63,10 +65,12 @@ const LicenseGallery = () => {
         setSelectedImage(images[newIndex]);
     };
 
-    const handleDownload = (pdfUrl: string, title: string) => {
+    const handleDownload = (fileId: string, title: string) => {
+        const downloadUrl = getDownloadUrl(fileId);
         const link = document.createElement("a");
-        link.href = pdfUrl;
+        link.href = downloadUrl;
         link.download = `${title}.pdf`;
+        link.target = "_blank";
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -77,17 +81,28 @@ const LicenseGallery = () => {
             <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-16 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16 animate-fade-in">
-
                         <h1 className="text-5xl md:text-6xl font-bold text-blue-600 mb-4  from-blue-600 to-blue-600">
-                            Лицензионные Сертификаты
+                            {t("title")}
                         </h1>
                         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                            Наши официальные разрешения и аккредитации
+                            {t("subtitle")}
                         </p>
                         <div className="mt-6 h-1 w-24 bg-gradient-to-r"></div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {isLoading ? (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                            {Array.from({ length: 4 }).map((_, index) => (
+                                <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden animate-pulse">
+                                    <div className="h-72 bg-gray-200"></div>
+                                    <div className="p-6">
+                                        <div className="h-6 bg-gray-200 rounded w-3/4"></div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                         {images.map((img, index) => (
                             <div
                                 key={img.id}
@@ -109,14 +124,14 @@ const LicenseGallery = () => {
                                                 className="flex items-center gap-2 px-6 py-3 bg-white text-gray-900 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-indigo-50 hover:scale-105"
                                             >
                                                 <ZoomIn className="w-5 h-5" />
-                                                Открыть
+                                                {t("buttons.open")}
                                             </button>
                                             <button
-                                                onClick={() => handleDownload(img.pdf, img.title)}
+                                                onClick={() => handleDownload(img.fileId, img.title)}
                                                 className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-75 hover:bg-indigo-700 hover:scale-105"
                                             >
                                                 <Download className="w-5 h-5" />
-                                                Скачать PDF
+                                                {t("buttons.download")}
                                             </button>
                                         </div>
                                     </div>
@@ -133,7 +148,8 @@ const LicenseGallery = () => {
                                 <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-indigo-500/10 to-transparent rounded-tl-full"></div>
                             </div>
                         ))}
-                    </div>
+                        </div>
+                    )}
                 </div>
             </div>
 
@@ -184,20 +200,20 @@ const LicenseGallery = () => {
                         <div className="flex items-center justify-end p-6 bg-gray-50">
                             <div className="flex gap-3">
                                 <a
-                                    href={selectedImage.pdf}
+                                    href={selectedImage.src}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-2 px-6 py-3 bg-gray-200 text-gray-900 rounded-xl font-semibold hover:bg-gray-300 transition-colors"
                                 >
                                     <ZoomIn className="w-5 h-5" />
-                                    Открыть в новой вкладке
+                                    {t("buttons.openNewTab")}
                                 </a>
                                 <button
-                                    onClick={() => handleDownload(selectedImage.pdf, selectedImage.title)}
+                                    onClick={() => handleDownload(selectedImage.fileId, selectedImage.title)}
                                     className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-xl font-semibold hover:from-blue-500 hover:to-blue-700 transition-all hover:scale-105 shadow-lg"
                                 >
                                     <Download className="w-5 h-5" />
-                                    Скачать PDF
+                                    {t("buttons.download")}
                                 </button>
                             </div>
                         </div>

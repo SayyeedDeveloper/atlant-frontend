@@ -143,7 +143,59 @@
     "pageTitle": "Catalog"
   },
   "contact": {
-    "title": "Contacts"
+    "title": "Contacts",
+    "subtitle": "Ready to start? Contact us in any convenient way",
+    "form": {
+      "title": "Send a Message",
+      "name": {
+        "label": "Your Name",
+        "placeholder": "Enter your name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "your@email.com"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "+998 XX XXX XX XX"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Tell us about your project..."
+      },
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "success": {
+        "title": "Great!",
+        "message": "Your message has been sent successfully.\nWe will contact you shortly!"
+      }
+    },
+    "info": {
+      "office": {
+        "title": "Our Office",
+        "address": "Bukhara region, Kagan city\nMahmud Torobiy str., 183"
+      },
+      "email": {
+        "title": "Email"
+      },
+      "hours": {
+        "title": "Working Hours",
+        "weekdays": "Mon - Fri",
+        "saturday": "Saturday",
+        "sunday": "Sunday",
+        "dayOff": "Day Off"
+      }
+    },
+    "team": {
+      "title": "Our Team",
+      "subtitle": "Choose a specialist to contact",
+      "call": "Call",
+      "modal": {
+        "title": "Make a Call?",
+        "callNow": "Call Now",
+        "cancel": "Cancel"
+      }
+    }
   },
   "payment": {
     "title": "Payment & Delivery",
@@ -227,8 +279,13 @@
     "underConstruction": "Page under construction"
   },
   "licenses": {
-    "title": "Licenses & Certificates",
-    "underConstruction": "Page under construction"
+    "title": "License Certificates",
+    "subtitle": "Our official permits and accreditations",
+    "buttons": {
+      "open": "Open",
+      "download": "Download PDF",
+      "openNewTab": "Open in New Tab"
+    }
   },
   "gallery": {
     "title": "Photo Gallery",

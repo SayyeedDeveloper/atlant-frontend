@@ -2,8 +2,16 @@
 import React, { useState, FormEvent, ChangeEvent } from "react";
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle, X } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
+import useSWR from "swr";
+import { fetchTeamMembers, TeamMemberResponseDTO } from "@/lib/api/team";
 
 const ContactSection = () => {
+    const t = useTranslations("contact");
+    const params = useParams();
+    const locale = params?.locale as string || 'ru';
+
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -12,6 +20,28 @@ const ContactSection = () => {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitted, setSubmitted] = useState(false);
+
+    // Fetch team members with SWR
+    const { data: teamMembers, error, isLoading } = useSWR(
+        `/api/team/public?locale=${locale}`,
+        () => fetchTeamMembers(locale),
+        {
+            revalidateOnFocus: false,
+            revalidateOnReconnect: false,
+            dedupingInterval: 60000,
+        }
+    );
+
+    // Map API response to component format
+    const contactPersons = teamMembers && teamMembers.length > 0
+        ? teamMembers.map(member => ({
+            name: member.name,
+            phone: member.phoneNumber,
+            position: member.role,
+            image: member.image.url
+        }))
+        : [];
+
     const [selectedPerson, setSelectedPerson] = useState<typeof contactPersons[0] | null>(null);
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -30,24 +60,16 @@ const ContactSection = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const contactPersons = [
-        { name: "Улугбек", phone: "+998 99 707 00 59", position: "Главный менеджер", image: "/team/ulugbek.jpg" },
-        { name: "Ихтиёр", phone: "+998 99 707 29 99", position: "Отдел продаж", image: "/team/ikhtiyor.jpg" },
-        { name: "Мухриддин", phone: "+998 99 707 56 55", position: "Техподдержка", image: "/team/mukhriddin.jpg" },
-        { name: "Диёрбек", phone: "+998 99 709 05 10", position: "Консультант", image: "/team/diyorbek.jpg" },
-        { name: "Ражаб", phone: "+998 99 118 22 00", position: "Специалист", image: "/team/rajab.jpg" },
-    ];
-
     return (
         <div className="min-h-screen bg-white py-16 px-4">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-16">
                     <h1 className="text-5xl md:text-6xl font-bold mb-4" style={{ color: "#0A7EED" }}>
-                        Контакты
+                        {t("title")}
                     </h1>
                     <p className="text-xl text-gray-800">
-                        Готовы начать? Свяжитесь с нами любым удобным способом
+                        {t("subtitle")}
                     </p>
                 </div>
 
@@ -55,30 +77,34 @@ const ContactSection = () => {
                 <div className="grid lg:grid-cols-2 gap-8 mb-16">
                     {/* Contact Form */}
                     <div className="bg-white rounded-3xl p-8 shadow-xl border-2" style={{ borderColor: "#0A7EED" }}>
-                        <h2 className="text-3xl font-bold text-gray-900 mb-6">Отправить сообщение</h2>
+                        <h2 className="text-3xl font-bold text-gray-900 mb-6">{t("form.title")}</h2>
 
                         {submitted ? (
                             <div className="text-center py-16">
                                 <div className="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center" style={{ background: "#0A7EED" }}>
                                     <CheckCircle className="w-10 h-10 text-white" />
                                 </div>
-                                <h3 className="text-2xl font-bold text-gray-900 mb-2">Отлично!</h3>
+                                <h3 className="text-2xl font-bold text-gray-900 mb-2">{t("form.success.title")}</h3>
                                 <p className="text-gray-800 text-lg">
-                                    Ваше сообщение успешно отправлено.<br />
-                                    Мы свяжемся с вами в ближайшее время!
+                                    {t("form.success.message").split('\n').map((line, i) => (
+                                        <React.Fragment key={i}>
+                                            {line}
+                                            {i === 0 && <br />}
+                                        </React.Fragment>
+                                    ))}
                                 </p>
                             </div>
                         ) : (
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div>
-                                    <label className="block text-sm font-semibold text-gray-900 mb-2">Ваше имя</label>
+                                    <label className="block text-sm font-semibold text-gray-900 mb-2">{t("form.name.label")}</label>
                                     <input
                                         type="text"
                                         name="name"
                                         value={formData.name}
                                         onChange={handleChange}
                                         required
-                                        placeholder="Введите ваше имя"
+                                        placeholder={t("form.name.placeholder")}
                                         className="w-full px-6 py-4 bg-gray-50 border-2 rounded-2xl focus:bg-white focus:outline-none transition"
                                         style={{ borderColor: "#E5E7EB" }}
                                         onFocus={(e) => e.target.style.borderColor = "#0A7EED"}
@@ -88,14 +114,14 @@ const ContactSection = () => {
 
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div>
-                                        <label className="block text-sm font-semibold text-gray-900 mb-2">Email</label>
+                                        <label className="block text-sm font-semibold text-gray-900 mb-2">{t("form.email.label")}</label>
                                         <input
                                             type="email"
                                             name="email"
                                             value={formData.email}
                                             onChange={handleChange}
                                             required
-                                            placeholder="your@email.com"
+                                            placeholder={t("form.email.placeholder")}
                                             className="w-full px-6 py-4 bg-gray-50 border-2 rounded-2xl focus:bg-white focus:outline-none transition"
                                             style={{ borderColor: "#E5E7EB" }}
                                             onFocus={(e) => e.target.style.borderColor = "#0A7EED"}
@@ -104,14 +130,14 @@ const ContactSection = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-semibold text-gray-900 mb-2">Телефон</label>
+                                        <label className="block text-sm font-semibold text-gray-900 mb-2">{t("form.phone.label")}</label>
                                         <input
                                             type="tel"
                                             name="phone"
                                             value={formData.phone}
                                             onChange={handleChange}
                                             required
-                                            placeholder="+998 XX XXX XX XX"
+                                            placeholder={t("form.phone.placeholder")}
                                             className="w-full px-6 py-4 bg-gray-50 border-2 rounded-2xl focus:bg-white focus:outline-none transition"
                                             style={{ borderColor: "#E5E7EB" }}
                                             onFocus={(e) => e.target.style.borderColor = "#0A7EED"}
@@ -121,14 +147,14 @@ const ContactSection = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-semibold text-gray-900 mb-2">Сообщение</label>
+                                    <label className="block text-sm font-semibold text-gray-900 mb-2">{t("form.message.label")}</label>
                                     <textarea
                                         name="message"
                                         value={formData.message}
                                         onChange={handleChange}
                                         required
                                         rows={6}
-                                        placeholder="Расскажите нам о вашем проекте..."
+                                        placeholder={t("form.message.placeholder")}
                                         className="w-full px-6 py-4 bg-gray-50 border-2 rounded-2xl focus:bg-white focus:outline-none resize-none transition"
                                         style={{ borderColor: "#E5E7EB" }}
                                         onFocus={(e) => e.target.style.borderColor = "#0A7EED"}
@@ -144,10 +170,10 @@ const ContactSection = () => {
                                     onMouseEnter={(e) => !isSubmitting && (e.currentTarget.style.background = "#0865C4")}
                                     onMouseLeave={(e) => !isSubmitting && (e.currentTarget.style.background = "#0A7EED")}
                                 >
-                                    {isSubmitting ? "Отправка..." : (
+                                    {isSubmitting ? t("form.submitting") : (
                                         <span className="flex items-center justify-center gap-3">
                                             <Send className="w-6 h-6" />
-                                            Отправить сообщение
+                                            {t("form.submit")}
                                         </span>
                                     )}
                                 </button>
@@ -169,10 +195,14 @@ const ContactSection = () => {
                                     <MapPin className="w-8 h-8 text-white" />
                                 </div>
                                 <div className="flex-1">
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-3">Наш офис</h3>
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{t("info.office.title")}</h3>
                                     <p className="text-lg leading-relaxed hover:underline" style={{ color: "#0A7EED" }}>
-                                        Бухарская область, Город Каган<br />
-                                        ул. Махмуд Торобий, 183
+                                        {t("info.office.address").split('\n').map((line, i) => (
+                                            <React.Fragment key={i}>
+                                                {line}
+                                                {i === 0 && <br />}
+                                            </React.Fragment>
+                                        ))}
                                     </p>
                                 </div>
                             </a>
@@ -185,7 +215,7 @@ const ContactSection = () => {
                                     <Mail className="w-8 h-8 text-white" />
                                 </div>
                                 <div className="flex-1">
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-3">Email</h3>
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{t("info.email.title")}</h3>
                                     <a href="mailto:atlant-fortuna@mail.ru" className="text-xl font-semibold" style={{ color: "#0A7EED" }}>
                                         atlant-fortuna@mail.ru
                                     </a>
@@ -200,19 +230,19 @@ const ContactSection = () => {
                                     <Clock className="w-8 h-8 text-white" />
                                 </div>
                                 <div className="flex-1">
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Часы работы</h3>
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-4">{t("info.hours.title")}</h3>
                                     <div className="space-y-3">
                                         <div className="flex justify-between">
-                                            <span className="text-gray-800 font-medium">Пн - Пт</span>
+                                            <span className="text-gray-800 font-medium">{t("info.hours.weekdays")}</span>
                                             <span className="text-gray-900 font-bold">09:00 - 18:00</span>
                                         </div>
                                         <div className="flex justify-between">
-                                            <span className="text-gray-800 font-medium">Суббота</span>
+                                            <span className="text-gray-800 font-medium">{t("info.hours.saturday")}</span>
                                             <span className="text-gray-900 font-bold">09:00 - 14:00</span>
                                         </div>
                                         <div className="flex justify-between">
-                                            <span className="text-gray-800 font-medium">Воскресенье</span>
-                                            <span className="text-red-600 font-bold">Выходной</span>
+                                            <span className="text-gray-800 font-medium">{t("info.hours.sunday")}</span>
+                                            <span className="text-red-600 font-bold">{t("info.hours.dayOff")}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -225,12 +255,27 @@ const ContactSection = () => {
                 <div>
                     <div className="text-center mb-12">
                         <h2 className="text-4xl font-bold mb-4" style={{ color: "#0A7EED" }}>
-                            Наша команда
+                            {t("team.title")}
                         </h2>
-                        <p className="text-xl text-gray-800">Выберите специалиста для связи</p>
+                        <p className="text-xl text-gray-800">{t("team.subtitle")}</p>
                     </div>
 
-                    <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
+                    {isLoading ? (
+                        <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
+                            {Array.from({ length: 5 }).map((_, index) => (
+                                <div key={index} className="bg-white rounded-3xl p-6 shadow-xl border-2 animate-pulse" style={{ borderColor: "#0A7EED" }}>
+                                    <div className="text-center space-y-4">
+                                        <div className="w-20 h-20 mx-auto rounded-full bg-gray-200"></div>
+                                        <div className="h-6 bg-gray-200 rounded w-3/4 mx-auto"></div>
+                                        <div className="h-4 bg-gray-200 rounded w-1/2 mx-auto"></div>
+                                        <div className="h-10 bg-gray-200 rounded"></div>
+                                        <div className="h-4 bg-gray-200 rounded w-full"></div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
                         {contactPersons.map((person, index) => (
                             <div key={index} className="bg-white rounded-3xl p-6 shadow-xl border-2 hover:shadow-2xl hover:scale-105 transition" style={{ borderColor: "#0A7EED" }}>
                                 <div className="text-center space-y-4">
@@ -260,14 +305,15 @@ const ContactSection = () => {
                                         onMouseLeave={(e) => e.currentTarget.style.background = "#0A7EED"}
                                     >
                                         <Phone className="w-4 h-4 inline mr-2" />
-                                        Позвонить
+                                        {t("team.call")}
                                     </button>
 
                                     <p className="text-xs text-gray-700 font-mono">{person.phone}</p>
                                 </div>
                             </div>
                         ))}
-                    </div>
+                        </div>
+                    )}
                 </div>
             </div>
 
@@ -276,7 +322,7 @@ const ContactSection = () => {
                 <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setSelectedPerson(null)}>
                     <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl" onClick={(e) => e.stopPropagation()}>
                         <div className="flex justify-between items-start mb-6">
-                            <h3 className="text-2xl font-bold text-gray-900">Позвонить?</h3>
+                            <h3 className="text-2xl font-bold text-gray-900">{t("team.modal.title")}</h3>
                             <button
                                 onClick={() => setSelectedPerson(null)}
                                 className="text-gray-500 hover:text-gray-900 transition"
@@ -309,14 +355,14 @@ const ContactSection = () => {
                                 onMouseLeave={(e) => e.currentTarget.style.background = "#0A7EED"}
                             >
                                 <Phone className="w-5 h-5 inline mr-2" />
-                                Позвонить сейчас
+                                {t("team.modal.callNow")}
                             </a>
                             <button
                                 onClick={() => setSelectedPerson(null)}
                                 className="block w-full px-6 py-4 rounded-2xl border-2 font-bold text-gray-900 transition hover:bg-gray-50"
                                 style={{ borderColor: "#E5E7EB" }}
                             >
-                                Отмена
+                                {t("team.modal.cancel")}
                             </button>
                         </div>
                     </div>
