@@ -14,7 +14,25 @@
   },
   "home": {
     "benefits": {
-      "title": "Our Advantages"
+      "title": "Advantages of Working With Us",
+      "cards": [
+        {
+          "title": "Years of Experience",
+          "description": "We have been working in this field since 2016 and have a reputation as a reliable partner"
+        },
+        {
+          "title": "Low Prices",
+          "description": "We purchase goods directly from manufacturers in China"
+        },
+        {
+          "title": "Product Quality",
+          "description": "We are responsible for quality and provide a warranty on products"
+        },
+        {
+          "title": "Delivery Anywhere",
+          "description": "We deliver goods to all regions of Uzbekistan"
+        }
+      ]
     },
     "catalog": {
       "title": "Product Catalog"

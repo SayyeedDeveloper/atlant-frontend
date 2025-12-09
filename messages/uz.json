@@ -14,7 +14,25 @@
   },
   "home": {
     "benefits": {
-      "title": "Bizning afzalliklarimiz"
+      "title": "Biz bilan ishlashning afzalliklari",
+      "cards": [
+        {
+          "title": "Ko'p yillik ish tajribasi",
+          "description": "Biz 2016 yildan beri ushbu sohada ishlaymiz va ishonchli hamkor sifatida obro'ga egamiz"
+        },
+        {
+          "title": "Arzon narxlar",
+          "description": "Biz tovarlarni Xitoydan ishlab chiqaruvchilardan bevosita xarid qilamiz"
+        },
+        {
+          "title": "Mahsulot sifati",
+          "description": "Biz sifat uchun javobgarmiz va mahsulotga kafolat beramiz"
+        },
+        {
+          "title": "Istalgan joyga yetkazib berish",
+          "description": "Biz tovarlarni O'zbekistonning barcha hududlariga yetkazib beramiz"
+        }
+      ]
     },
     "catalog": {
       "title": "Mahsulotlar katalogi"
