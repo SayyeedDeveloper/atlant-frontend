@@ -40,6 +40,10 @@
     "gallery": {
       "title": "Photo Gallery",
       "showAll": "Show All"
+    },
+    "contactBanner": {
+      "text": "Have questions? Leave a request and we will contact you!",
+      "button": "Request a Call"
     }
   },
   "products": {
@@ -158,5 +162,23 @@
     "notFoundDescription": "Sorry, the page you are looking for does not exist or has been moved.",
     "backHome": "Back to Home"
   },
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "footer": {
+    "callToAction": {
+      "title": "Have questions?",
+      "description": "Request a call and we will contact you shortly",
+      "button": "Request a Call"
+    },
+    "social": {
+      "title": "Follow Us on Social Media"
+    },
+    "contacts": {
+      "title": "Contacts",
+      "address": "Bukhara region, Kagan city, Mahmud Torobiy str., 183",
+      "phone": "+998 99 707 00 59",
+      "email": "atlant-fortuna@mail.ru"
+    },
+    "copyright": "© 2025 Atlant Fortuna LLC",
+    "createWebsite": "Create a website for free"
+  }
 }

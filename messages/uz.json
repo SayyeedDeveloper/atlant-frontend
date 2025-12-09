@@ -40,6 +40,10 @@
     "gallery": {
       "title": "Foto galereya",
       "showAll": "Barchasini ko'rsatish"
+    },
+    "contactBanner": {
+      "text": "Savollaringiz bormi? Arizangizni qoldiring va biz siz bilan bog'lanamiz!",
+      "button": "Qo'ng'iroq qilish"
     }
   },
   "products": {
@@ -158,5 +162,23 @@
     "notFoundDescription": "Kechirasiz, siz qidirayotgan sahifa mavjud emas yoki ko'chirilgan.",
     "backHome": "Bosh sahifaga qaytish"
   },
-  "loading": "Yuklanmoqda..."
+  "loading": "Yuklanmoqda...",
+  "footer": {
+    "callToAction": {
+      "title": "Savollaringiz bormi?",
+      "description": "Qo'ng'iroq qiling va biz tez orada siz bilan bog'lanamiz",
+      "button": "Qo'ng'iroq qilish"
+    },
+    "social": {
+      "title": "Ijtimoiy tarmoqlarda biz"
+    },
+    "contacts": {
+      "title": "Aloqa",
+      "address": "Buxoro viloyati, Kogon shahri, Mahmud Torobiy ko'chasi, 183",
+      "phone": "+998 99 707 00 59",
+      "email": "atlant-fortuna@mail.ru"
+    },
+    "copyright": "© 2025 \"Atlant Fortuna\" MChJ",
+    "createWebsite": "Sayt yaratish bepul"
+  }
 }

@@ -1,7 +1,11 @@
+"use client";
 import React from "react";
 import { GiRotaryPhone } from "react-icons/gi";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 const ContactBanner = () => {
+  const t = useTranslations("home.contactBanner");
   return (
     <div className="relative w-full overflow-hidden">
     
@@ -24,16 +28,15 @@ const ContactBanner = () => {
         {/* Icon */}
         <GiRotaryPhone className="text-blue-600 text-8xl" />
 
-        
+
         <p className="text-center md:text-left text-xl md:text-2xl lg:text-3xl font-semibold text-[#2b2b2b] leading-snug max-w-2xl">
-          Есть вопросы? Оставьте заявку <br className="hidden md:block" />
-          и мы свяжемся с вами!
+          {t("text")}
         </p>
 
-      
-        <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-md transition duration-200">
-          Заказать звонок
-        </button>
+
+        <Link href="/contact" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-md transition duration-200 inline-block">
+            {t("button")}
+        </Link>
       </div>
     </div>
   );
