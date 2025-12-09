@@ -11,7 +11,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://atlant-backend-
 export async function fetchCarouselImages(): Promise<CarouselImage[]> {
   try {
     const response = await fetch(`${API_BASE_URL}/api/v1/carousel/public`, {
-      next: { revalidate: 3600 }, // Cache for 1 hour
+      next: { revalidate: 60 }, // Cache for 1 minute
     });
 
     if (!response.ok) {
