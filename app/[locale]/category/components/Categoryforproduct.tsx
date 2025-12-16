@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 import {useRouter} from "next/navigation";
 import {catalogProducts} from "@/data/products";
 import {useTranslations} from "next-intl";
+import { useParams } from "next/navigation";
 import Link from "next/link";
+import { ProductCategory } from "@/lib/api/products";
 
 interface TranslatedCatalogProduct {
     id: number;
@@ -18,7 +20,6 @@ interface Category {
     image: string;
 }
 
-
 interface Product {
     id: number;
     title: string;
@@ -26,6 +27,16 @@ interface Product {
     available: boolean;
     image: string;
 }
+
+// Map category IDs to ProductCategory enum values
+const categoryIdToEnum: { [key: number]: ProductCategory } = {
+    1: ProductCategory.WATER_PURIFICATION_FILTERS,
+    2: ProductCategory.CARBONATED_WATER_EQUIPMENT,
+    3: ProductCategory.HOUSEHOLD_WATER_FILTERS,
+    4: ProductCategory.WATER_DISPENSERS_COOLERS,
+    5: ProductCategory.WATER_FILTER_SPARE_PARTS,
+    6: ProductCategory.OTHER_PRODUCTS_EQUIPMENT,
+};
 
 const products: Product[] = [
     { id: 1, title: "Генератор озона DNA-10G-A", price: "5 575 200 сум", available: true, image: "/images/Recomend1.webp" },
@@ -37,6 +48,8 @@ const products: Product[] = [
 
 const Catalogforproduct = () => {
     const router = useRouter();
+    const params = useParams();
+    const locale = params?.locale as string || 'ru';
     const t = useTranslations("category");
     const tProducts = useTranslations("products");
 
@@ -64,27 +77,33 @@ const Catalogforproduct = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                 >
-                    {translatedCatalogProducts.map((item) => (
-                        <motion.div
-                            key={item.id}
-                            whileHover={{ scale: 1.05 }}
-                            transition={{ type: "spring", stiffness: 200 }}
-                            className="bg-white rounded-2xl shadow-md hover:shadow-2xl overflow-hidden border border-gray-100 group cursor-pointer"
-                        >
-                            <div className="relative w-full h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
-                                <img
-                                    src={item.image}
-                                    alt={item.title}
-                                    className="object-contain h-full w-full transition-transform duration-500 group-hover:scale-110"
-                                />
-                            </div>
-                            <div className="p-5 text-center">
-                                <h2 className="text-gray-800 font-semibold text-lg group-hover:text-blue-600 transition-colors duration-300">
-                                    {item.title}
-                                </h2>
-                            </div>
-                        </motion.div>
-                    ))}
+                    {translatedCatalogProducts.map((item) => {
+                        const categoryEnum = categoryIdToEnum[item.id];
+                        const catalogUrl = `/${locale}/catalog?category=${categoryEnum}`;
+
+                        return (
+                            <Link key={item.id} href={catalogUrl}>
+                                <motion.div
+                                    whileHover={{ scale: 1.05 }}
+                                    transition={{ type: "spring", stiffness: 200 }}
+                                    className="bg-white rounded-2xl shadow-md hover:shadow-2xl overflow-hidden border border-gray-100 group cursor-pointer"
+                                >
+                                    <div className="relative w-full h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
+                                        <img
+                                            src={item.image}
+                                            alt={item.title}
+                                            className="object-contain h-full w-full transition-transform duration-500 group-hover:scale-110"
+                                        />
+                                    </div>
+                                    <div className="p-5 text-center">
+                                        <h2 className="text-gray-800 font-semibold text-lg group-hover:text-blue-600 transition-colors duration-300">
+                                            {item.title}
+                                        </h2>
+                                    </div>
+                                </motion.div>
+                            </Link>
+                        );
+                    })}
                 </motion.div>
             </main>
 

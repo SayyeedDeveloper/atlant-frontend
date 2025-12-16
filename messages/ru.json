@@ -300,6 +300,35 @@
     "backHome": "Вернуться на главную"
   },
   "loading": "Загрузка...",
+  "catalog": {
+    "title": "Каталог продукции",
+    "subtitle": "Профессиональное оборудование для очистки воды",
+    "filter": {
+      "all": "Все товары",
+      "byCategory": "Фильтр по категориям"
+    },
+    "categories": {
+      "WATER_PURIFICATION_FILTERS": "Фильтры очистки воды",
+      "CARBONATED_WATER_EQUIPMENT": "Оборудование для газированной воды",
+      "HOUSEHOLD_WATER_FILTERS": "Бытовые фильтры для квартир и домов",
+      "WATER_DISPENSERS_COOLERS": "Диспенсеры (кулеры) для воды",
+      "WATER_FILTER_SPARE_PARTS": "Запасные части для фильтров воды",
+      "OTHER_PRODUCTS_EQUIPMENT": "Прочие товары и оборудование"
+    },
+    "product": {
+      "inStock": "В наличии",
+      "outOfStock": "Нет в наличии",
+      "buyButton": "Купить",
+      "addToCart": "В корзину",
+      "viewDetails": "Подробнее"
+    },
+    "view": {
+      "grid": "Сетка",
+      "list": "Список"
+    },
+    "noProducts": "Товары не найдены",
+    "productsCount": "{count} товаров"
+  },
   "footer": {
     "callToAction": {
       "title": "У вас есть вопросы?",

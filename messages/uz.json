@@ -300,6 +300,35 @@
     "backHome": "Bosh sahifaga qaytish"
   },
   "loading": "Yuklanmoqda...",
+  "catalog": {
+    "title": "Mahsulotlar katalogi",
+    "subtitle": "Professional suv tozalash uskunalari",
+    "filter": {
+      "all": "Barcha mahsulotlar",
+      "byCategory": "Turkum bo'yicha filtrlash"
+    },
+    "categories": {
+      "WATER_PURIFICATION_FILTERS": "Suv tozalash filtrlari",
+      "CARBONATED_WATER_EQUIPMENT": "Gazirlangan suv uskunalari",
+      "HOUSEHOLD_WATER_FILTERS": "Uy-joy uchun suv filtrlari",
+      "WATER_DISPENSERS_COOLERS": "Suv dispenserlari va sovutgichlar",
+      "WATER_FILTER_SPARE_PARTS": "Suv filtrlari ehtiyot qismlari",
+      "OTHER_PRODUCTS_EQUIPMENT": "Boshqa mahsulotlar va uskunalar"
+    },
+    "product": {
+      "inStock": "Omborda mavjud",
+      "outOfStock": "Omborda yo'q",
+      "buyButton": "Sotib olish",
+      "addToCart": "Savatga qo'shish",
+      "viewDetails": "Batafsil"
+    },
+    "view": {
+      "grid": "To'r",
+      "list": "Ro'yxat"
+    },
+    "noProducts": "Mahsulotlar topilmadi",
+    "productsCount": "{count} mahsulot"
+  },
   "footer": {
     "callToAction": {
       "title": "Savollaringiz bormi?",

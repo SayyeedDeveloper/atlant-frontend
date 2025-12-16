@@ -300,6 +300,35 @@
     "backHome": "Back to Home"
   },
   "loading": "Loading...",
+  "catalog": {
+    "title": "Product Catalog",
+    "subtitle": "Professional water purification equipment",
+    "filter": {
+      "all": "All Products",
+      "byCategory": "Filter by Category"
+    },
+    "categories": {
+      "WATER_PURIFICATION_FILTERS": "Water Purification Filters",
+      "CARBONATED_WATER_EQUIPMENT": "Carbonated Water Equipment",
+      "HOUSEHOLD_WATER_FILTERS": "Household Water Filters",
+      "WATER_DISPENSERS_COOLERS": "Water Dispensers & Coolers",
+      "WATER_FILTER_SPARE_PARTS": "Water Filter Spare Parts",
+      "OTHER_PRODUCTS_EQUIPMENT": "Other Products & Equipment"
+    },
+    "product": {
+      "inStock": "In Stock",
+      "outOfStock": "Out of Stock",
+      "buyButton": "Buy",
+      "addToCart": "Add to Cart",
+      "viewDetails": "View Details"
+    },
+    "view": {
+      "grid": "Grid",
+      "list": "List"
+    },
+    "noProducts": "No products found",
+    "productsCount": "{count} products"
+  },
   "footer": {
     "callToAction": {
       "title": "Have questions?",
