@@ -329,6 +329,30 @@
     "noProducts": "No products found",
     "productsCount": "{count} products"
   },
+  "product": {
+    "loading": "Loading...",
+    "notFound": "Product not found",
+    "brand": "Brand",
+    "articleNumber": "Article Number",
+    "inStock": "In Stock",
+    "outOfStock": "Out of Stock",
+    "perUnit": "pc",
+    "payment": "Payment",
+    "delivery": "Delivery",
+    "buyButton": "Buy",
+    "addToCart": "Add to Cart",
+    "contact": "Contact Us",
+    "descriptionTitle": "Description",
+    "noDescription": "No description available",
+    "paymentMethods": {
+      "cash": "Cash",
+      "homo": "HUMO Terminal",
+      "uzcard": "UzCard Terminal",
+      "online": "Online Payment",
+      "bankTransfer": "Bank Transfer",
+      "notSpecified": "Not specified"
+    }
+  },
   "footer": {
     "callToAction": {
       "title": "Have questions?",

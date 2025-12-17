@@ -329,6 +329,30 @@
     "noProducts": "Товары не найдены",
     "productsCount": "{count} товаров"
   },
+  "product": {
+    "loading": "Загрузка...",
+    "notFound": "Товар не найден",
+    "brand": "Бренд",
+    "articleNumber": "Артикул",
+    "inStock": "В наличии",
+    "outOfStock": "Нет в наличии",
+    "perUnit": "шт",
+    "payment": "Оплата",
+    "delivery": "Доставка",
+    "buyButton": "Купить",
+    "addToCart": "В корзину",
+    "contact": "Написать",
+    "descriptionTitle": "Описание",
+    "noDescription": "Описание отсутствует",
+    "paymentMethods": {
+      "cash": "Наличными",
+      "homo": "Терминал HUMO",
+      "uzcard": "Терминал UzCard",
+      "online": "Онлайн оплата",
+      "bankTransfer": "Перечислением",
+      "notSpecified": "Не указано"
+    }
+  },
   "footer": {
     "callToAction": {
       "title": "У вас есть вопросы?",

@@ -329,6 +329,30 @@
     "noProducts": "Mahsulotlar topilmadi",
     "productsCount": "{count} mahsulot"
   },
+  "product": {
+    "loading": "Yuklanmoqda...",
+    "notFound": "Mahsulot topilmadi",
+    "brand": "Brend",
+    "articleNumber": "Artikul",
+    "inStock": "Omborda mavjud",
+    "outOfStock": "Omborda yo'q",
+    "perUnit": "dona",
+    "payment": "To'lov",
+    "delivery": "Yetkazib berish",
+    "buyButton": "Sotib olish",
+    "addToCart": "Savatga qo'shish",
+    "contact": "Bog'lanish",
+    "descriptionTitle": "Ta'rif",
+    "noDescription": "Ta'rif mavjud emas",
+    "paymentMethods": {
+      "cash": "Naqd pul",
+      "homo": "HUMO terminali",
+      "uzcard": "UzCard terminali",
+      "online": "Onlayn to'lov",
+      "bankTransfer": "Bank o'tkazmasi",
+      "notSpecified": "Ko'rsatilmagan"
+    }
+  },
   "footer": {
     "callToAction": {
       "title": "Savollaringiz bormi?",
